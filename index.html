@@ -3,350 +3,504 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>COLOMBIA 2030 — Conflicto, Paz y Negociación</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <title>Colombia — Conflicto Armado, Negociación y Paz</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800;900&family=Source+Sans+3:wght@300;400;500;600;700&family=Source+Serif+4:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     <style>
         :root {
-            --bg-primary: #0a0a0f;
-            --bg-secondary: #12121a;
-            --bg-card: #1a1a2e;
-            --bg-card-hover: #222240;
-            --accent-1: #00d4ff;
-            --accent-2: #7c3aed;
-            --accent-3: #f43f5e;
-            --accent-4: #10b981;
-            --accent-5: #f59e0b;
-            --text-primary: #e8e8f0;
-            --text-secondary: #8888a0;
-            --text-muted: #555570;
-            --border: #2a2a40;
-            --glass: rgba(255,255,255,0.03);
-            --glass-border: rgba(255,255,255,0.08);
+            --navy: #1a2332;
+            --navy-light: #243447;
+            --dark: #1c1c1c;
+            --gray-900: #212529;
+            --gray-800: #343a40;
+            --gray-700: #495057;
+            --gray-600: #6c757d;
+            --gray-500: #adb5bd;
+            --gray-400: #ced4da;
+            --gray-300: #dee2e6;
+            --gray-200: #e9ecef;
+            --gray-100: #f8f9fa;
+            --white: #ffffff;
+            --red: #c0392b;
+            --red-light: #e74c3c;
+            --red-bg: #fdf0ef;
+            --blue: #2c3e50;
+            --blue-light: #34495e;
+            --green: #27ae60;
+            --green-bg: #eafaf1;
+            --yellow: #f39c12;
+            --yellow-bg: #fef9e7;
+            --border: #dee2e6;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.6;
-            overflow-x: hidden;
+            font-family: 'Source Sans 3', -apple-system, sans-serif;
+            background: var(--gray-100);
+            color: var(--gray-900);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* ANIMATED BACKGROUND */
-        .bg-grid {
-            position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background-image:
-                linear-gradient(rgba(0,212,255,0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0,212,255,0.03) 1px, transparent 1px);
-            background-size: 60px 60px;
-            z-index: -1;
-            animation: gridMove 20s linear infinite;
+        /* TOP BAR */
+        .top-bar {
+            background: var(--navy);
+            color: var(--gray-400);
+            padding: 8px 0;
+            font-size: 0.8rem;
+            border-bottom: 3px solid var(--red);
         }
-        @keyframes gridMove {
-            0% { transform: translate(0,0); }
-            100% { transform: translate(60px,60px); }
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-
-        .bg-glow {
-            position: fixed;
-            width: 600px; height: 600px;
-            border-radius: 50%;
-            filter: blur(150px);
-            opacity: 0.15;
-            z-index: -1;
-        }
-        .bg-glow-1 { top: -200px; right: -200px; background: var(--accent-1); }
-        .bg-glow-2 { bottom: -200px; left: -200px; background: var(--accent-2); }
+        .top-bar a { color: var(--gray-400); text-decoration: none; }
+        .top-bar a:hover { color: var(--white); }
 
         /* HEADER */
         header {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+            padding: 0;
+        }
+
+        .header-main {
+            padding: 40px 0 30px;
             text-align: center;
-            padding: 40px 20px;
+        }
+
+        .header-main h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 900;
+            color: var(--navy);
+            line-height: 1.1;
+            margin-bottom: 12px;
+            letter-spacing: -1px;
+        }
+
+        .header-main .tagline {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 1.2rem;
+            color: var(--gray-600);
+            font-style: italic;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .header-meta {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid var(--gray-300);
+            font-size: 0.85rem;
+            color: var(--gray-600);
+        }
+
+        .header-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .header-meta i { color: var(--red); }
+
+        /* HERO IMAGE */
+        .hero-image {
+            width: 100%;
+            height: 450px;
+            background: url('https://images.unsplash.com/photo-1568322445389-f64ac2515020?w=1400&h=450&fit=crop') center/cover;
             position: relative;
         }
-
-        .header-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: var(--glass);
-            border: 1px solid var(--glass-border);
-            padding: 8px 20px;
-            border-radius: 100px;
-            font-size: 0.85rem;
-            color: var(--accent-1);
-            margin-bottom: 30px;
-            backdrop-filter: blur(10px);
+        .hero-image::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: linear-gradient(transparent, rgba(0,0,0,0.6));
         }
-
-        .header-badge .dot {
-            width: 8px; height: 8px;
-            background: var(--accent-4);
-            border-radius: 50%;
-            animation: pulse 2s ease-in-out infinite;
-        }
-        @keyframes pulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.5; transform: scale(0.8); }
-        }
-
-        h1 {
-            font-size: clamp(3rem, 8vw, 6rem);
-            font-weight: 900;
-            line-height: 1.05;
-            margin-bottom: 24px;
-            background: linear-gradient(135deg, #fff 0%, var(--accent-1) 50%, var(--accent-2) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .subtitle {
-            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
-            color: var(--text-secondary);
-            max-width: 700px;
-            margin-bottom: 40px;
-            font-weight: 300;
-        }
-
-        .header-stats {
-            display: flex;
-            gap: 40px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .header-stat {
-            text-align: center;
-        }
-
-        .header-stat .number {
-            font-size: 2.5rem;
-            font-weight: 800;
-            font-family: 'JetBrains Mono', monospace;
-            background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .header-stat .label {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 2px;
+        .hero-caption {
+            position: absolute;
+            bottom: 16px;
+            right: 20px;
+            color: rgba(255,255,255,0.8);
+            font-size: 0.75rem;
+            z-index: 1;
         }
 
         /* NAV */
         nav {
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
             position: sticky;
             top: 0;
             z-index: 1000;
-            background: rgba(10,10,15,0.8);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border);
-            padding: 0 20px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
         }
 
         nav .nav-inner {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
             display: flex;
             overflow-x: auto;
-            gap: 4px;
             scrollbar-width: none;
         }
         nav .nav-inner::-webkit-scrollbar { display: none; }
 
         nav a {
-            color: var(--text-secondary);
+            color: var(--gray-700);
             text-decoration: none;
             padding: 16px 20px;
             font-size: 0.85rem;
-            font-weight: 500;
+            font-weight: 600;
             white-space: nowrap;
-            border-bottom: 2px solid transparent;
-            transition: all 0.3s;
+            border-bottom: 3px solid transparent;
+            transition: all 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
-        nav a:hover, nav a.active {
-            color: var(--accent-1);
-            border-bottom-color: var(--accent-1);
+        nav a:hover { color: var(--navy); background: var(--gray-100); }
+        nav a.active {
+            color: var(--red);
+            border-bottom-color: var(--red);
         }
 
         /* CONTAINER */
         .container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
         /* SECTIONS */
         .section {
-            padding: 80px 0;
+            padding: 60px 0;
             border-bottom: 1px solid var(--border);
+            background: var(--white);
+        }
+
+        .section-alt {
+            background: var(--gray-100);
         }
 
         .section-header {
-            margin-bottom: 50px;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--navy);
         }
 
         .section-tag {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
+            display: inline-block;
             font-size: 0.75rem;
-            font-weight: 600;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 3px;
-            color: var(--accent-1);
-            margin-bottom: 16px;
+            letter-spacing: 2px;
+            color: var(--red);
+            margin-bottom: 8px;
         }
 
-        .section-tag i { font-size: 0.65rem; }
-
         .section h2 {
-            font-size: clamp(2rem, 4vw, 3rem);
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
             font-weight: 800;
-            margin-bottom: 16px;
+            color: var(--navy);
+            line-height: 1.2;
         }
 
         .section-desc {
-            color: var(--text-secondary);
-            font-size: 1.1rem;
-            max-width: 600px;
-        }
-
-        /* CARDS */
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 20px;
-            margin: 40px 0;
-        }
-
-        .card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 30px;
-            transition: all 0.3s;
-            position: relative;
-            overflow: hidden;
-        }
-        .card:hover {
-            border-color: var(--accent-1);
-            transform: translateY(-4px);
-            box-shadow: 0 20px 40px rgba(0,212,255,0.1);
-        }
-
-        .card-icon {
-            width: 48px; height: 48px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-        }
-
-        .card h3 {
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 12px;
-        }
-
-        .card p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
+            color: var(--gray-600);
+            font-size: 1.05rem;
+            margin-top: 8px;
+            max-width: 700px;
         }
 
         /* STAT CARDS */
         .stat-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
             gap: 16px;
-            margin: 40px 0;
+            margin: 30px 0;
         }
 
         .stat-card {
-            background: var(--bg-card);
+            background: var(--white);
             border: 1px solid var(--border);
-            border-radius: 16px;
+            border-radius: 8px;
             padding: 24px;
             text-align: center;
-            transition: all 0.3s;
-        }
-        .stat-card:hover {
-            border-color: var(--accent-1);
         }
 
         .stat-card .stat-number {
-            font-size: 2.5rem;
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 2.2rem;
             font-weight: 800;
-            font-family: 'JetBrains Mono', monospace;
             line-height: 1;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         .stat-card .stat-label {
             font-size: 0.8rem;
-            color: var(--text-muted);
+            color: var(--gray-600);
             text-transform: uppercase;
             letter-spacing: 1px;
+            font-weight: 600;
         }
 
-        .color-1 { color: var(--accent-1); }
-        .color-2 { color: var(--accent-2); }
-        .color-3 { color: var(--accent-3); }
-        .color-4 { color: var(--accent-4); }
-        .color-5 { color: var(--accent-5); }
+        .color-red { color: var(--red); }
+        .color-navy { color: var(--navy); }
+        .color-blue { color: var(--blue); }
+        .color-green { color: var(--green); }
+        .color-yellow { color: var(--yellow); }
+        .color-gray { color: var(--gray-600); }
 
-        .bg-1 { background: rgba(0,212,255,0.1); }
-        .bg-2 { background: rgba(124,58,237,0.1); }
-        .bg-3 { background: rgba(244,63,94,0.1); }
-        .bg-4 { background: rgba(16,185,129,0.1); }
-        .bg-5 { background: rgba(245,158,11,0.1); }
+        /* CARDS */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 24px;
+            transition: box-shadow 0.2s;
+        }
+        .card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+
+        .card-icon {
+            width: 40px; height: 40px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            margin-bottom: 16px;
+        }
+
+        .card h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--navy);
+        }
+
+        .card p {
+            color: var(--gray-700);
+            font-size: 0.95rem;
+        }
+
+        .bg-red { background: var(--red-bg); color: var(--red); }
+        .bg-blue { background: #eaf2f8; color: var(--blue); }
+        .bg-green { background: var(--green-bg); color: var(--green); }
+        .bg-yellow { background: var(--yellow-bg); color: var(--yellow); }
 
         /* CHARTS */
         .chart-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
             gap: 20px;
-            margin: 40px 0;
+            margin: 30px 0;
         }
 
         .chart-card {
-            background: var(--bg-card);
+            background: var(--white);
             border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 30px;
+            border-radius: 8px;
+            padding: 24px;
         }
 
         .chart-card h3 {
+            font-family: 'Playfair Display', Georgia, serif;
             font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 20px;
-            color: var(--text-secondary);
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--navy);
         }
 
         .chart-container {
             position: relative;
-            height: 300px;
+            height: 280px;
+        }
+
+        /* GROUP CARDS (ACTORES) */
+        .group-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 30px;
+            margin: 20px 0;
+            border-left: 4px solid var(--gray-400);
+        }
+
+        .group-card.border-red { border-left-color: var(--red); }
+        .group-card.border-navy { border-left-color: var(--navy); }
+        .group-card.border-blue { border-left-color: #2980b9; }
+        .group-card.border-green { border-left-color: var(--green); }
+        .group-card.border-yellow { border-left-color: var(--yellow); }
+
+        .group-card h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+            color: var(--navy);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .group-card .meta {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.9rem;
+            color: var(--gray-600);
+        }
+
+        .meta-item i { color: var(--red); font-size: 0.8rem; }
+
+        /* COLLAPSIBLE */
+        .collapsible {
+            background: var(--gray-100);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            margin: 10px 0;
+            overflow: hidden;
+        }
+
+        .collapsible-header {
+            padding: 14px 18px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--navy);
+            transition: background 0.2s;
+        }
+        .collapsible-header:hover { background: var(--gray-200); }
+        .collapsible-header i { transition: transform 0.2s; color: var(--gray-600); }
+        .collapsible.open .collapsible-header i { transform: rotate(180deg); }
+
+        .collapsible-body {
+            padding: 0 18px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+        .collapsible.open .collapsible-body {
+            padding: 0 18px 18px;
+            max-height: 3000px;
+        }
+
+        /* TABLE */
+        .table-wrap {
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background: var(--navy);
+            color: var(--white);
+            padding: 12px 16px;
+            text-align: left;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.95rem;
+            color: var(--gray-800);
+        }
+
+        tr:nth-child(even) td { background: var(--gray-100); }
+        tr:hover td { background: #e8edf2; }
+
+        /* BADGES */
+        .badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .badge-danger { background: var(--red-bg); color: var(--red); }
+        .badge-warning { background: var(--yellow-bg); color: #d68910; }
+        .badge-success { background: var(--green-bg); color: var(--green); }
+        .badge-info { background: #eaf2f8; color: var(--blue); }
+
+        /* RISK BOX */
+        .risk-box {
+            background: var(--red-bg);
+            border: 1px solid #f5c6cb;
+            border-radius: 6px;
+            padding: 18px;
+            margin: 16px 0;
+        }
+
+        .risk-box h4 {
+            color: var(--red);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .risk-box ul { list-style: none; padding: 0; }
+
+        .risk-box li {
+            padding: 6px 0 6px 18px;
+            position: relative;
+            color: var(--gray-800);
+            font-size: 0.95rem;
+        }
+
+        .risk-box li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 14px;
+            width: 6px;
+            height: 6px;
+            background: var(--red);
+            border-radius: 50%;
         }
 
         /* TIMELINE */
         .timeline {
             position: relative;
-            padding: 40px 0;
+            padding: 30px 0;
         }
 
         .timeline::before {
@@ -356,333 +510,155 @@
             top: 0;
             bottom: 0;
             width: 2px;
-            background: linear-gradient(180deg, var(--accent-1), var(--accent-2), var(--accent-3));
+            background: var(--navy);
             transform: translateX(-50%);
         }
 
         .timeline-item {
             position: relative;
             width: 50%;
-            padding: 20px 40px;
+            padding: 15px 35px;
         }
 
-        .timeline-item:nth-child(odd) {
-            left: 0;
-            text-align: right;
-        }
-
-        .timeline-item:nth-child(even) {
-            left: 50%;
-        }
+        .timeline-item:nth-child(odd) { left: 0; text-align: right; }
+        .timeline-item:nth-child(even) { left: 50%; }
 
         .timeline-dot {
             position: absolute;
-            width: 16px;
-            height: 16px;
-            background: var(--accent-1);
+            width: 14px;
+            height: 14px;
+            background: var(--red);
             border-radius: 50%;
-            border: 3px solid var(--bg-primary);
-            top: 30px;
+            border: 3px solid var(--white);
+            top: 25px;
             z-index: 1;
+            box-shadow: 0 0 0 2px var(--navy);
         }
 
-        .timeline-item:nth-child(odd) .timeline-dot {
-            right: -8px;
-        }
-
-        .timeline-item:nth-child(even) .timeline-dot {
-            left: -8px;
-        }
+        .timeline-item:nth-child(odd) .timeline-dot { right: -7px; }
+        .timeline-item:nth-child(even) .timeline-dot { left: -7px; }
 
         .timeline-content {
-            background: var(--bg-card);
+            background: var(--white);
             border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 24px;
+            border-radius: 6px;
+            padding: 18px;
         }
 
         .timeline-year {
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Playfair Display', Georgia, serif;
             font-size: 0.85rem;
-            color: var(--accent-1);
+            color: var(--red);
             font-weight: 700;
-            margin-bottom: 8px;
+            margin-bottom: 4px;
         }
 
         .timeline-title {
-            font-size: 1.1rem;
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.05rem;
             font-weight: 700;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
+            color: var(--navy);
         }
 
         .timeline-desc {
             font-size: 0.9rem;
-            color: var(--text-secondary);
+            color: var(--gray-700);
         }
 
         /* TABS */
         .tabs {
             display: flex;
-            gap: 4px;
-            margin-bottom: 30px;
-            overflow-x: auto;
-            padding-bottom: 4px;
+            gap: 0;
+            margin-bottom: 24px;
+            border-bottom: 2px solid var(--border);
         }
 
         .tab {
             padding: 12px 24px;
-            border-radius: 10px;
             font-size: 0.9rem;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all 0.2s;
             white-space: nowrap;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            color: var(--text-secondary);
+            background: none;
+            border: none;
+            color: var(--gray-600);
+            border-bottom: 3px solid transparent;
+            margin-bottom: -2px;
         }
-        .tab:hover { border-color: var(--accent-1); color: var(--text-primary); }
+        .tab:hover { color: var(--navy); }
         .tab.active {
-            background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
-            border-color: transparent;
-            color: #fff;
+            color: var(--red);
+            border-bottom-color: var(--red);
         }
 
         .tab-content { display: none; }
         .tab-content.active { display: block; }
 
-        /* TABLE */
-        .table-wrap {
-            overflow-x: auto;
-            margin: 30px 0;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        th {
-            background: var(--bg-secondary);
-            padding: 14px 20px;
-            text-align: left;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--text-muted);
-            border-bottom: 1px solid var(--border);
-        }
-
-        td {
-            padding: 16px 20px;
-            border-bottom: 1px solid var(--border);
-            font-size: 0.95rem;
-        }
-
-        tr:hover td {
-            background: var(--glass);
-        }
-
-        /* BADGES */
-        .badge {
-            display: inline-block;
-            padding: 4px 12px;
-            border-radius: 100px;
-            font-size: 0.75rem;
-            font-weight: 600;
-        }
-
-        .badge-danger { background: rgba(244,63,94,0.15); color: var(--accent-3); }
-        .badge-warning { background: rgba(245,158,11,0.15); color: var(--accent-5); }
-        .badge-success { background: rgba(16,185,129,0.15); color: var(--accent-4); }
-        .badge-info { background: rgba(0,212,255,0.15); color: var(--accent-1); }
-
-        /* PROGRESS BAR */
-        .progress-bar {
-            height: 8px;
-            background: var(--bg-secondary);
-            border-radius: 100px;
-            overflow: hidden;
-            margin: 10px 0;
-        }
-
-        .progress-fill {
-            height: 100%;
-            border-radius: 100px;
-            transition: width 1s ease;
-        }
-
-        /* GROUP CARDS */
-        .group-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 30px;
+        /* QUOTE */
+        .quote-box {
+            background: var(--gray-100);
+            border-left: 4px solid var(--navy);
+            padding: 20px 24px;
             margin: 20px 0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .group-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 4px;
-            height: 100%;
-        }
-
-        .group-card.red::before { background: var(--accent-3); }
-        .group-card.blue::before { background: var(--accent-1); }
-        .group-card.purple::before { background: var(--accent-2); }
-        .group-card.green::before { background: var(--accent-4); }
-        .group-card.orange::before { background: var(--accent-5); }
-
-        .group-card h3 {
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 16px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .group-card .meta {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-bottom: 20px;
-        }
-
-        .meta-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-        }
-
-        .meta-item i {
-            color: var(--accent-1);
-            font-size: 0.8rem;
-        }
-
-        /* COLLAPSIBLE */
-        .collapsible {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            margin: 12px 0;
-            overflow: hidden;
-        }
-
-        .collapsible-header {
-            padding: 16px 20px;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: 600;
-            transition: background 0.3s;
-        }
-        .collapsible-header:hover { background: var(--glass); }
-        .collapsible-header i { transition: transform 0.3s; }
-        .collapsible.open .collapsible-header i { transform: rotate(180deg); }
-
-        .collapsible-body {
-            padding: 0 20px;
-            max-height: 0;
-            overflow: hidden;
-            transition: all 0.3s;
-        }
-        .collapsible.open .collapsible-body {
-            padding: 0 20px 20px;
-            max-height: 2000px;
-        }
-
-        /* RISK BOX */
-        .risk-box {
-            background: rgba(244,63,94,0.05);
-            border: 1px solid rgba(244,63,94,0.2);
-            border-radius: 12px;
-            padding: 20px;
-            margin: 20px 0;
-        }
-
-        .risk-box h4 {
-            color: var(--accent-3);
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .risk-box ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .risk-box li {
-            padding: 8px 0;
-            padding-left: 20px;
-            position: relative;
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-        }
-
-        .risk-box li::before {
-            content: '⚠';
-            position: absolute;
-            left: 0;
-            font-size: 0.8rem;
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 1.1rem;
+            font-style: italic;
+            color: var(--gray-800);
         }
 
         /* FOOTER */
         footer {
-            background: var(--bg-secondary);
-            border-top: 1px solid var(--border);
-            padding: 60px 20px;
-            text-align: center;
+            background: var(--navy);
+            color: var(--gray-400);
+            padding: 40px 0;
+        }
+
+        footer h4 {
+            font-family: 'Playfair Display', Georgia, serif;
+            color: var(--white);
+            font-size: 1.1rem;
+            margin-bottom: 12px;
         }
 
         footer p {
-            color: var(--text-muted);
             font-size: 0.9rem;
-        }
-
-        footer .footer-links {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            margin-top: 20px;
+            line-height: 1.8;
         }
 
         footer a {
-            color: var(--accent-1);
+            color: var(--gray-400);
             text-decoration: none;
-            font-size: 0.9rem;
+        }
+        footer a:hover { color: var(--white); }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid var(--navy-light);
         }
 
         /* RESPONSIVE */
         @media (max-width: 768px) {
             .card-grid { grid-template-columns: 1fr; }
             .chart-grid { grid-template-columns: 1fr; }
+            .stat-grid { grid-template-columns: repeat(2, 1fr); }
             .timeline::before { left: 20px; }
-            .timeline-item { width: 100%; left: 0 !important; padding-left: 50px; text-align: left !important; }
-            .timeline-dot { left: 12px !important; right: auto !important; }
-            .header-stats { gap: 20px; }
-            nav .nav-inner { gap: 0; }
-            nav a { padding: 14px 12px; font-size: 0.8rem; }
+            .timeline-item { width: 100%; left: 0 !important; padding-left: 45px; text-align: left !important; }
+            .timeline-dot { left: 13px !important; right: auto !important; }
+            .header-meta { flex-direction: column; gap: 8px; }
+            nav a { padding: 14px 14px; font-size: 0.8rem; }
         }
 
-        /* SCROLL ANIMATIONS */
+        /* SCROLL */
         .fade-in {
             opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
         }
         .fade-in.visible {
             opacity: 1;
@@ -691,41 +667,36 @@
     </style>
 </head>
 <body>
-    <div class="bg-grid"></div>
-    <div class="bg-glow bg-glow-1"></div>
-    <div class="bg-glow bg-glow-2"></div>
+
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        <div class="container">
+            <span><i class="fas fa-newspaper"></i> Investigación periodística sobre conflicto armado en Colombia</span>
+            <span>Actualizado: julio 2026 · Fuentes verificadas</span>
+        </div>
+    </div>
 
     <!-- HEADER -->
     <header>
-        <div class="header-badge">
-            <span class="dot"></span>
-            Investigación en curso — Actualizado julio 2026
-        </div>
-        <h1>COLOMBIA<br>2030</h1>
-        <p class="subtitle">Conflicto armado, negociación y construcción de paz. Un análisis integral con datos verificados de múltiples fuentes independientes.</p>
-        <div class="header-stats">
-            <div class="header-stat">
-                <div class="number">27,000+</div>
-                <div class="label">Combatientes</div>
-            </div>
-            <div class="header-stat">
-                <div class="number">253K</div>
-                <div class="label">Hectáreas coca</div>
-            </div>
-            <div class="header-stat">
-                <div class="number">187</div>
-                <div class="label">Líderes asesinados 2025</div>
-            </div>
-            <div class="header-stat">
-                <div class="number">9M+</div>
-                <div class="label">Víctimas registradas</div>
+        <div class="header-main container">
+            <h1>Colombia:<br>Conflicto, Paz y Negociación</h1>
+            <p class="tagline">Un análisis integral del conflicto armado colombiano, sus actores, economías ilícitas y los procesos de construcción de paz.</p>
+            <div class="header-meta">
+                <span><i class="fas fa-calendar-alt"></i> julio 2026</span>
+                <span><i class="fas fa-database"></i> Múltiples fuentes verificadas</span>
+                <span><i class="fas fa-users"></i> 27,000+ combatientes activos</span>
             </div>
         </div>
     </header>
 
+    <!-- HERO -->
+    <div class="hero-image">
+        <span class="hero-caption">Colombia — fotografía de archivo</span>
+    </div>
+
     <!-- NAV -->
     <nav>
-        <div class="nav-inner">
+        <div class="nav-inner container">
             <a href="#actores">Actores Armados</a>
             <a href="#economia">Economía del Conflicto</a>
             <a href="#crisis">Crisis Humanitaria</a>
@@ -733,7 +704,6 @@
             <a href="#marco-juridico">Marco Jurídico</a>
             <a href="#procesos-paz">Procesos de Paz</a>
             <a href="#venezuela">Venezuela</a>
-            <a href="#internacionales">Internacionales</a>
             <a href="#espriella">Nuevo Gobierno</a>
             <a href="#datos-historicos">Datos Históricos</a>
             <a href="#cronologia">Cronología</a>
@@ -743,77 +713,79 @@
 
     <div class="container">
 
+        <!-- RESUMEN EJECUTIVO -->
+        <section class="section" style="background:var(--navy); color:var(--white); border-bottom:none;">
+            <div class="stat-grid" style="margin:0">
+                <div class="stat-card" style="background:var(--navy-light); border-color:var(--navy-light);">
+                    <div class="stat-number" style="color:var(--white)">~27,000</div>
+                    <div class="stat-label" style="color:var(--gray-500)">Combatientes activos</div>
+                </div>
+                <div class="stat-card" style="background:var(--navy-light); border-color:var(--navy-light);">
+                    <div class="stat-number" style="color:var(--red-light)">253,000</div>
+                    <div class="stat-label" style="color:var(--gray-500)">Hectáreas de coca (2023)</div>
+                </div>
+                <div class="stat-card" style="background:var(--navy-light); border-color:var(--navy-light);">
+                    <div class="stat-number" style="color:var(--yellow)">187</div>
+                    <div class="stat-label" style="color:var(--gray-500)">Líderes asesinados 2025</div>
+                </div>
+                <div class="stat-card" style="background:var(--navy-light); border-color:var(--navy-light);">
+                    <div class="stat-number" style="color:var(--white)">9M+</div>
+                    <div class="stat-label" style="color:var(--gray-500)">Víctimas registradas</div>
+                </div>
+                <div class="stat-card" style="background:var(--navy-light); border-color:var(--navy-light);">
+                    <div class="stat-number" style="color:var(--red-light)">8M+</div>
+                    <div class="stat-label" style="color:var(--gray-500)">Desplazados internos</div>
+                </div>
+            </div>
+        </section>
+
         <!-- ACTORES ARMADOS -->
         <section id="actores" class="section fade-in">
             <div class="section-header">
-                <div class="section-tag"><i class="fas fa-crosshairs"></i> ACTORES ARMADOS</div>
+                <div class="section-tag">Actores Armados</div>
                 <h2>Grupos Ilegales en Colombia</h2>
-                <p class="section-desc">Cinco grupos principales controlan territorios, economías ilícitas y populations civiles. El tamaño real es disputado entre fuentes oficiales y de investigación.</p>
-            </div>
-
-            <div class="stat-grid">
-                <div class="stat-card">
-                    <div class="stat-number color-3">~9,000</div>
-                    <div class="stat-label">Clan del Golfo</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number color-1">~6,300</div>
-                    <div class="stat-label">ELN</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number color-2">~3,500</div>
-                    <div class="stat-label">EMC</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number color-5">~1,500</div>
-                    <div class="stat-label">Segunda Marquetalia</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number color-4">~800</div>
-                    <div class="stat-label">Comuneros del Sur</div>
-                </div>
+                <p class="section-desc">Cinco grupos principales y uno emergente controlan territorios, economías ilícitas y poblaciones civiles. El tamaño real es disputado entre fuentes oficiales y de investigación.</p>
             </div>
 
             <!-- CLAN DEL GOLFO -->
-            <div class="group-card red">
-                <h3><span style="color:var(--accent-3)"><i class="fas fa-skull-crossbones"></i></span> Clan del Golfo / AGC — Autodefensas Gaitanistas de Colombia</h3>
+            <div class="group-card border-red">
+                <h3>Clan del Golfo / Autodefensas Gaitanistas de Colombia</h3>
                 <div class="meta">
                     <div class="meta-item"><i class="fas fa-users"></i> ~9,000-9,840 miembros</div>
-                    <div class="meta-item"><i class="fas fa-map"></i> 381 municipios (73% del país)</div>
-                    <div class="meta-item"><i class="fas fa-dollar-sign"></i> Narcotráfico, extorsión, microtráfico</div>
-                    <div class="meta-item"><i class="fas fa-chart-line"></i> +23.5% crecimiento 2025</div>
+                    <div class="meta-item"><i class="fas fa-map-marker-alt"></i> 381 municipios (73% del país)</div>
+                    <div class="meta-item"><i class class="fas fa-chart-line"></i> +23.5% crecimiento 2025</div>
                 </div>
-                <p style="color:var(--text-secondary); margin-bottom:16px">Mayor grupo criminal de Colombia. Se autodenominan "Autodefensas Gaitanistas de Colombia" — el nombre "Clan del Golfo" es etiqueta disputada. Controlan corredores estratégicos en Urabá, Bajo Cauca, Magdalena Medio, Sur de Córdoba y frontera norte.</p>
+                <p style="color:var(--gray-700); margin-bottom:16px">Mayor grupo criminal de Colombia. Se autodenominan "Autodefensas Gaitanistas de Colombia" — el nombre "Clan del Golfo" es etiqueta disputada por el propio grupo. Controlan corredores estratégicos en Urabá, Bajo Cauca, Magdalena Medio y frontera norte.</p>
                 <div class="collapsible">
                     <div class="collapsible-header">Liderazgo actual <i class="fas fa-chevron-down"></i></div>
                     <div class="collapsible-body">
-                        <p style="color:var(--text-secondary); margin-bottom:8px"><strong>"Chiquito Malo"</strong> (Dairo Antonio Úsuga) — Líder máximo. Extraditado a EE.UU. en 2012. Extradición reactivada julio 2026. Acusaciones: terrorismo + narcotráfico (abril 2026).</p>
-                        <p style="color:var(--text-secondary); margin-bottom:8px"><strong>"Gonzalito"</strong> (Eliezer Encino Velásquez) — Segundo al mando. <strong>MUERTO en enero 2026.</strong></p>
-                        <p style="color:var(--text-secondary)"><strong>"Don Carlos"</strong> (Roberto Vargas Gutiérrez) — Posible sucesor tras muerte de Gonzalito.</p>
+                        <p style="color:var(--gray-700); margin-bottom:6px"><strong>"Chiquito Malo"</strong> (Dairo Antonio Úsuga) — Líder máximo. Extraditado a EE.UU. en 2012. Extradición reactivada julio 2026. Acusaciones: terrorismo + narcotráfico (abril 2026).</p>
+                        <p style="color:var(--gray-700); margin-bottom:6px"><strong>"Gonzalito"</strong> (Eliezer Encino Velásquez) — Segundo al mando. <strong>MUERTO en enero 2026.</strong></p>
+                        <p style="color:var(--gray-700)"><strong>"Don Carlos"</strong> (Roberto Vargas Gutiérrez) — Posible sucesor tras muerte de Gonzalito.</p>
                     </div>
                 </div>
                 <div class="collapsible">
-                    <div class="collapsible-header">Estructura territorial (381 municipios) <i class="fas fa-chevron-down"></i></div>
+                    <div class="collapsible-header">Estructura territorial — 381 municipios <i class="fas fa-chevron-down"></i></div>
                     <div class="collapsible-body">
-                        <p style="color:var(--text-secondary); margin-bottom:8px"><strong>Bloque Metro:</strong> Urabá (Antioquia, Chocó). Corredor estratégico con Panamá.</p>
-                        <p style="color:var(--text-secondary); margin-bottom:8px"><strong>Bloque Héroes:</strong> Bajo Cauca (Antioquia, Córdoba). Minería y narcotráfico.</p>
-                        <p style="color:var(--text-secondary); margin-bottom:8px"><strong>Bloque Castaño:</strong> Sur de Córdoba, Norte de Santander. Frontera con Venezuela.</p>
-                        <p style="color:var(--text-secondary); margin-bottom:8px"><strong>Bloque Caparros:</strong> Magdalena Medio (Bolívar, Santander). Control minero.</p>
-                        <p style="color:var(--text-secondary)"><strong>Presencia documentada en 32 de 33 departamentos.</strong></p>
+                        <p style="color:var(--gray-700); margin-bottom:6px"><strong>Bloque Metro:</strong> Urabá (Antioquia, Chocó). Corredor estratégico con Panamá.</p>
+                        <p style="color:var(--gray-700); margin-bottom:6px"><strong>Bloque Héroes:</strong> Bajo Cauca (Antioquia, Córdoba). Minería y narcotráfico.</p>
+                        <p style="color:var(--gray-700); margin-bottom:6px"><strong>Bloque Castaño:</strong> Sur de Córdoba, Norte de Santander. Frontera con Venezuela.</p>
+                        <p style="color:var(--gray-700); margin-bottom:6px"><strong>Bloque Caparros:</strong> Magdalena Medio (Bolívar, Santander). Control minero.</p>
+                        <p style="color:var(--gray-700)"><strong>Presencia documentada en 32 de 33 departamentos.</strong></p>
                     </div>
                 </div>
                 <div class="collapsible">
                     <div class="collapsible-header">Proceso de paz y sometimiento <i class="fas fa-chevron-down"></i></div>
                     <div class="collapsible-body">
-                        <p style="color:var(--text-secondary); margin-bottom:8px"><strong>2017:</strong> Govenador de Antioquia anuncia "desmovilización". FIP confirma que no hubo dejación de armas.</p>
-                        <p style="color:var(--text-secondary); margin-bottom:8px"><strong>Nov 2021:</strong> Sometimiento parcial a JEP. Grupo sigue operando normalmente.</p>
-                        <p style="color:var(--text-secondary); margin-bottom:8px"><strong>ZUT (Zonas de Ubicación Temporal):</strong> Nunca implementadas. Promesa incumplida.</p>
-                        <p style="color:var(--text-secondary); margin-bottom:8px"><strong>Abr 2026:</strong> Acusaciones por terrorismo + narcotráfico por EE.UU.</p>
-                        <p style="color:var(--text-secondary)"><strong>Jul 2026:</strong> Reactivación de extradición de "Chiquito Malo".</p>
+                        <p style="color:var(--gray-700); margin-bottom:6px"><strong>2017:</strong> Gobernador de Antioquia anuncia "desmovilización". FIP confirma que no hubo dejación de armas.</p>
+                        <p style="color:var(--gray-700); margin-bottom:6px"><strong>Nov 2021:</strong> Sometimiento parcial a JEP. Grupo sigue operando normalmente.</p>
+                        <p style="color:var(--gray-700); margin-bottom:6px"><strong>ZUT (Zonas de Ubicación Temporal):</strong> Nunca implementadas. Promesa incumplida.</p>
+                        <p style="color:var(--gray-700); margin-bottom:6px"><strong>Abr 2026:</strong> Acusaciones por terrorismo + narcotráfico por EE.UU.</p>
+                        <p style="color:var(--gray-700)"><strong>Jul 2026:</strong> Reactivación de extradición de "Chiquito Malo".</p>
                     </div>
                 </div>
                 <div class="risk-box">
-                    <h4><i class="fas fa-exclamation-triangle"></i> Riesgos y amenazas</h4>
+                    <h4><i class="fas fa-exclamation-triangle"></i> Riesgos</h4>
                     <ul>
                         <li>Control de 381 municipios (récord histórico) — 73% del territorio nacional</li>
                         <li>Crecimiento del 23.5% en un año (FIP, enero 2026)</li>
@@ -826,90 +798,78 @@
             </div>
 
             <!-- ELN -->
-            <div class="group-card blue">
-                <h3><span style="color:var(--accent-1)"><i class="fas fa-star"></i></span> ELN — Ejército de Liberación Nacional</h3>
+            <div class="group-card border-navy">
+                <h3>ELN — Ejército de Liberación Nacional</h3>
                 <div class="meta">
                     <div class="meta-item"><i class="fas fa-users"></i> ~6,300 miembros</div>
-                    <div class="meta-item"><i class="fas fa-map"></i> 8 Frentes de Guerra</div>
-                    <div class="meta-item"><i class="fas fa-dollar-sign"></i> Narcotráfico, minería, extorsión</div>
+                    <div class="meta-item"><i class="fas fa-map-marker-alt"></i> 8 Frentes de Guerra</div>
                     <div class="meta-item"><i class="fas fa-flag"></i> Sometido a Venezuela (jun 2026)</div>
                 </div>
-                <p style="color:var(--text-secondary); margin-bottom:16px">Guerrilla más extendida del país. Estructura descentralizada de mando federado con presencia binacional Colombia-Venezuela. Fundado en 1964 con inspiración de la Revolución Cubana. Se sometió al gobierno de Venezuela en junio 2026.</p>
+                <p style="color:var(--gray-700); margin-bottom:16px">Guerrilla más extendida del país. Estructura descentralizada de mando federado con presencia binacional Colombia-Venezuela. Fundado en 1964 con inspiración de la Revolución Cubana. Se sometió al gobierno de Venezuela en junio 2026.</p>
                 <div class="collapsible">
                     <div class="collapsible-header">Los 8 Frentes de Guerra <i class="fas fa-chevron-down"></i></div>
                     <div class="collapsible-body">
-                        <p style="color:var(--text-secondary); margin-bottom:12px"><strong>1. Nororiental "Manuel Pérez Martínez"</strong> — Catatumbo, Cesar, Zulia (Venezuela). Comandante: alias "Alfred" / "Francisco". <strong>9 frentes individuales</strong> (el más grande). Incluye FGZ (Frente General Zulia) y FGNE.</p>
-                        <p style="color:var(--text-secondary); margin-bottom:12px"><strong>2. Oriental "Manuel Vásquez Castaño"</strong> — Arauca, Boyacá, Casanare, Apure (Venezuela). Comandante: alias "Pablito". <strong>5 frentes.</strong> Minería ilegal y narcotráfico transfronterizo.</p>
-                        <p style="color:var(--text-secondary); margin-bottom:12px"><strong>3. Occidental "Omar Gómez"</strong> — Chocó, Risaralda. Comandante: alias "Martha" / "La Abuela". Rutas fluviales del Pacífico.</p>
-                        <p style="color:var(--text-secondary); margin-bottom:12px"><strong>4. Suroccidental "Carlos Alberto Troches Zuleta"</strong> — Nariño, Cauca. De aquí se desprendieron los Comuneros del Sur en 2024.</p>
-                        <p style="color:var(--text-secondary); margin-bottom:12px"><strong>5. Central</strong> — Tolima, Risaralda, Antioquia. Estructuras dispersas. Operaciones urbanas.</p>
-                        <p style="color:var(--text-secondary); margin-bottom:12px"><strong>6. Urbano Nacional</strong> — Bogotá, Medellín, Cali, Barranquilla, Cúcuta. Inteligencia y reclutamiento urbano.</p>
-                        <p style="color:var(--text-secondary); margin-bottom:12px"><strong>7. Fronterizo Nororiental</strong> — Zulia, Venezuela. Operaciones transfronterizas. Logística y tránsito.</p>
-                        <p style="color:var(--text-secondary)"><strong>8. Comandos de Frente en Venezuela</strong> — Apure, Táchira. Logística, refugio, descanso. Base de retaguardia.</p>
+                        <p style="color:var(--gray-700); margin-bottom:10px"><strong>1. Nororiental "Manuel Pérez Martínez"</strong> — Catatumbo, Cesar, Zulia (Venezuela). Comandante: alias "Alfred" / "Francisco". <strong>9 frentes individuales</strong> (el más grande).</p>
+                        <p style="color:var(--gray-700); margin-bottom:10px"><strong>2. Oriental "Manuel Vásquez Castaño"</strong> — Arauca, Boyacá, Casanare, Apure (Venezuela). Comandante: alias "Pablito". <strong>5 frentes.</strong></p>
+                        <p style="color:var(--gray-700); margin-bottom:10px"><strong>3. Occidental "Omar Gómez"</strong> — Chocó, Risaralda. Comandante: alias "Martha" / "La Abuela". Rutas fluviales del Pacífico.</p>
+                        <p style="color:var(--gray-700); margin-bottom:10px"><strong>4. Suroccidental "Carlos Alberto Troches Zuleta"</strong> — Nariño, Cauca. De aquí se desprendieron los Comuneros del Sur en 2024.</p>
+                        <p style="color:var(--gray-700); margin-bottom:10px"><strong>5. Central</strong> — Tolima, Risaralda, Antioquia. Estructuras dispersas.</p>
+                        <p style="color:var(--gray-700); margin-bottom:10px"><strong>6. Urbano Nacional</strong> — Bogotá, Medellín, Cali, Barranquilla, Cúcuta.</p>
+                        <p style="color:var(--gray-700); margin-bottom:10px"><strong>7. Fronterizo Nororiental</strong> — Zulia, Venezuela. Operaciones transfronterizas.</p>
+                        <p style="color:var(--gray-700)"><strong>8. Comandos de Frente en Venezuela</strong> — Apure, Táchira. Logística y refugio.</p>
                     </div>
                 </div>
                 <div class="collapsible">
-                    <div class="collapsible-header">Diálogos de paz — Cronología completa <i class="fas fa-chevron-down"></i></div>
+                    <div class="collapsible-header">Diálogos de paz — Cronología <i class="fas fa-chevron-down"></i></div>
                     <div class="collapsible-body">
-                        <p style="color:var(--text-secondary); margin-bottom:8px"><strong>Nov 2022:</strong> Reinicio de negociaciones en Caracas (gobierno Petro).</p>
-                        <p style="color:var(--text-secondary); margin-bottom:8px"><strong>Mar 2023:</strong> Acuerdo de México — marco de construcción de paz.</p>
-                        <p style="color:var(--text-secondary); margin-bottom:8px"><strong>Jun 2023:</strong> Acuerdo 9 — mecanismo de participación ciudadana.</p>
-                        <p style="color:var(--text-secondary); margin-bottom:8px"><strong>Dic 2023:</strong> V Ciclo — acuerdos sobre cese al fuego y zonas críticas.</p>
-                        <p style="color:var(--text-secondary); margin-bottom:8px"><strong>Abr 2024:</strong> VII Ciclo suspendido por ELN.</p>
-                        <p style="color:var(--text-secondary); margin-bottom:8px"><strong>Ene 2025:</strong> Petro suspende diálogos tras ataques. "El ELN no tiene voluntad de paz".</p>
-                        <p style="color:var(--text-secondary)"><strong>Jun 2026:</strong> ELN se somete a gobierno de Venezuela. Incertidumbre total.</p>
+                        <p style="color:var(--gray-700); margin-bottom:6px"><strong>Nov 2022:</strong> Reinicio de negociaciones en Caracas.</p>
+                        <p style="color:var(--gray-700); margin-bottom:6px"><strong>Mar 2023:</strong> Acuerdo de México — marco de construcción de paz.</p>
+                        <p style="color:var(--gray-700); margin-bottom:6px"><strong>Jun 2023:</strong> Acuerdo 9 — mecanismo de participación ciudadana.</p>
+                        <p style="color:var(--gray-700); margin-bottom:6px"><strong>Dic 2023:</strong> V Ciclo — acuerdos sobre cese al fuego.</p>
+                        <p style="color:var(--gray-700); margin-bottom:6px"><strong>Abr 2024:</strong> VII Ciclo suspendido por ELN.</p>
+                        <p style="color:var(--gray-700); margin-bottom:6px"><strong>Ene 2025:</strong> Petro suspende diálogos. "El ELN no tiene voluntad de paz".</p>
+                        <p style="color:var(--gray-700)"><strong>Jun 2026:</strong> ELN se somete a gobierno de Venezuela. Incertidumbre total.</p>
                     </div>
                 </div>
                 <div class="risk-box">
                     <h4><i class="fas fa-exclamation-triangle"></i> Riesgos</h4>
                     <ul>
                         <li>Diálogos de paz suspendidos enero 2025</li>
-                        <li>Guerra abierta con Frente 33 en Catatumbo — más de 55,000 desplazados</li>
+                        <li>Guerra abierta con Frente 33 en Catatumbo — 55,000+ desplazados</li>
                         <li>Sometimiento a Venezuela: ¿quién negocia ahora?</li>
                         <li>Estructura descentralizada impide acuerdos nacionales</li>
-                        <li>Económía mixta: coca + minería + extorsión + petróleo</li>
                         <li>Próximo gobierno: cero negociación política</li>
                     </ul>
                 </div>
             </div>
 
             <!-- EMC -->
-            <div class="group-card purple">
-                <h3><span style="color:var(--accent-2)"><i class="fas fa-bolt"></i></span> EMC — Estado Mayor Central</h3>
+            <div class="group-card border-blue">
+                <h3>EMC — Estado Mayor Central</h3>
                 <div class="meta">
                     <div class="meta-item"><i class="fas fa-users"></i> ~3,500-4,000 miembros</div>
-                    <div class="meta-item"><i class="fas fa-map"></i> 21 frentes, 100+ municipios</div>
-                    <div class="meta-item"><i class="fas fa-dollar-sign"></i> Narcotráfico, minería, extorsión</div>
+                    <div class="meta-item"><i class="fas fa-map-marker-alt"></i> 21 frentes, 100+ municipios</div>
                     <div class="meta-item"><i class="fas fa-flag"></i> Cese al fuego activo</div>
                 </div>
-                <p style="color:var(--text-secondary); margin-bottom:16px">Disidencia de FARC más grande y militarizada. Cese al fuego bilateral en curso (diciembre 2025). Fin de confrontación armada declarado en abril 2026. El tamaño real (3,500-4,000) es disputado — el gobierno dice 9,000 incluyendo redes de apoyo.</p>
+                <p style="color:var(--gray-700); margin-bottom:16px">Disidencia de FARC más grande y militarizada. Cese al fuego bilateral en curso (diciembre 2025). Fin de confrontación armada declarado en abril 2026. El tamaño real (3,500-4,000) es disputado — el gobierno dice 9,000 incluyendo redes de apoyo.</p>
                 <div class="collapsible">
                     <div class="collapsible-header">Liderazgo y fractura interna <i class="fas fa-chevron-down"></i></div>
                     <div class="collapsible-body">
-                        <p style="color:var(--text-secondary); margin-bottom:8px"><strong>"Gentil Duarte"</strong> (Miguel Botache) — Fundador. <strong>MUERTO</strong> en mayo 2022 por disidencias rivales.</p>
-                        <p style="color:var(--text-secondary); margin-bottom:8px"><strong>"Mordisco"</strong> (Nicolás Rodríguez Bautista) — Líder actual. Pro-negociación.</p>
-                        <p style="color:var(--text-secondary); margin-bottom:8px"><strong>"Calarcá"</strong> (Rodrigo Conde) — Ala dura. Se separó del proceso de paz.</p>
-                        <p style="color:var(--text-secondary)"><strong>"John 40"</strong> (Géner García Molina) — Finanzas. Alineado con Segunda Marquetalia.</p>
+                        <p style="color:var(--gray-700); margin-bottom:6px"><strong>"Gentil Duarte"</strong> (Miguel Botache) — Fundador. <strong>MUERTO</strong> en mayo 2022.</p>
+                        <p style="color:var(--gray-700); margin-bottom:6px"><strong>"Mordisco"</strong> (Nicolás Rodríguez Bautista) — Líder actual. Pro-negociación.</p>
+                        <p style="color:var(--gray-700); margin-bottom:6px"><strong>"Calarcá"</strong> (Rodrigo Conde) — Ala dura. Se separó del proceso de paz.</p>
+                        <p style="color:var(--gray-700)"><strong>"John 40"</strong> (Géner García Molina) — Finanzas. Alineado con Segunda Marquetalia.</p>
                     </div>
                 </div>
                 <div class="collapsible">
-                    <div class="collapsible-header">Proceso de Paz — Cronología completa <i class="fas fa-chevron-down"></i></div>
+                    <div class="collapsible-header">Proceso de Paz — Cronología <i class="fas fa-chevron-down"></i></div>
                     <div class="collapsible-body">
-                        <p style="color:var(--text-secondary); margin-bottom:8px"><strong>Jun 2025:</strong> Inicio de diálogos gobierno-EMC en Colombia.</p>
-                        <p style="color:var(--text-secondary); margin-bottom:8px"><strong>Nov 2025:</strong> Anuncio de cese al fuego bilateral.</p>
-                        <p style="color:var(--text-secondary); margin-bottom:8px"><strong>Dic 2025:</strong> Firma de Acuerdo de Cese al Fuego.</p>
-                        <p style="color:var(--text-secondary); margin-bottom:8px"><strong>Ene 2026:</strong> Cese unilateral del EMC para las elecciones.</p>
-                        <p style="color:var(--text-secondary); margin-bottom:8px"><strong>Abr 2026:</strong> Declaratoria de fin de la confrontación armada.</p>
-                        <p style="color:var(--text-secondary)"><strong>Jul 2026:</strong> Conformación del Grupo de Trabajo para protocolos en La Habana. Garantes: Cuba.</p>
-                    </div>
-                </div>
-                <div class="collapsible">
-                    <div class="collapsible-header">Operaciones recientes <i class="fas fa-chevron-down"></i></div>
-                    <div class="collapsible-body">
-                        <p style="color:var(--text-secondary); margin-bottom:8px"><strong>Operaciones 2025:</strong> 159 operaciones militares documentadas.</p>
-                        <p style="color:var(--text-secondary); margin-bottom:8px"><strong>Muertos en combate:</strong> 75 guerrilleros muertos en 2025.</p>
-                        <p style="color:var(--text-secondary); margin-bottom:8px"><strong>Reclutamiento infantil:</strong> Documentado pero en menor proporción que Frente 33.</p>
-                        <p style="color:var(--text-secondary)"><strong>Control territorial:</strong> Putumayo, Caquetá, Guaviare, Meta, Arauca, Norte de Santander.</p>
+                        <p style="color:var(--gray-700); margin-bottom:6px"><strong>Jun 2025:</strong> Inicio de diálogos gobierno-EMC.</p>
+                        <p style="color:var(--gray-700); margin-bottom:6px"><strong>Nov 2025:</strong> Anuncio de cese al fuego bilateral.</p>
+                        <p style="color:var(--gray-700); margin-bottom:6px"><strong>Dic 2025:</strong> Firma de Acuerdo de Cese al Fuego.</p>
+                        <p style="color:var(--gray-700); margin-bottom:6px"><strong>Ene 2026:</strong> Cese unilateral para las elecciones.</p>
+                        <p style="color:var(--gray-700); margin-bottom:6px"><strong>Abr 2026:</strong> Declaratoria de fin de la confrontación armada.</p>
+                        <p style="color:var(--gray-700)"><strong>Jul 2026:</strong> Conformación del Grupo de Trabajo en La Habana.</p>
                     </div>
                 </div>
                 <div class="risk-box">
@@ -924,154 +884,107 @@
             </div>
 
             <!-- SEGUNDA MARQUETALIA -->
-            <div class="group-card orange">
-                <h3><span style="color:var(--accent-5)"><i class="fas fa-fire"></i></span> Segunda Marquetalia</h3>
+            <div class="group-card border-yellow">
+                <h3>Segunda Marquetalia</h3>
                 <div class="meta">
                     <div class="meta-item"><i class="fas fa-users"></i> ~1,500 miembros (debilitados)</div>
-                    <div class="meta-item"><i class="fas fa-map"></i> Norte de Santander, Nariño, Venezuela</div>
-                    <div class="meta-item"><i class="fas fa-dollar-sign"></i> Narcotráfico: 20+ toneladas/año</div>
-                    <div class="meta-item"><i class="fas fa-broken-chain"></i> Divididos internamente</div>
+                    <div class="meta-item"><i class="fas fa-map-marker-alt"></i> Norte de Santander, Nariño, Venezuela</div>
+                    <div class="meta-item"><i class="fas fa-exclamation-triangle"></i> Divididos internamente</div>
                 </div>
-                <p style="color:var(--text-secondary); margin-bottom:16px">Fundada en agosto 2019 por Iván Márquez tras romper el Acuerdo de Paz. Exportó +20 toneladas de cocaína en 2024. Dividida desde noviembre 2024: "Walter Mendoza" negocia con gobierno, Iván Márquez se separó. "Zarco Aldinever" (segundo al mando) asesinado por ELN en Venezuela por disputas de narcotráfico.</p>
+                <p style="color:var(--gray-700); margin-bottom:16px">Fundada en agosto 2019 por Iván Márquez tras romper el Acuerdo de Paz. Exportó +20 toneladas de cocaína en 2024. Dividida desde noviembre 2024: "Walter Mendoza" negocia con gobierno, Iván Márquez se separó. "Zarco Aldinever" (segundo al mando) asesinado por ELN en Venezuela.</p>
                 <div class="collapsible">
                     <div class="collapsible-header">Fractura interna (noviembre 2024) <i class="fas fa-chevron-down"></i></div>
                     <div class="collapsible-body">
-                        <p style="color:var(--text-secondary); margin-bottom:12px"><strong>Coordinadora Nacional del Ejército Bolivariano</strong></p>
-                        <p style="color:var(--text-secondary); margin-bottom:8px">• Líder: "Walter Mendoza" (José Vicente Lesmes) y "Araña" (Giovanny Rojas)</p>
-                        <p style="color:var(--text-secondary); margin-bottom:8px">• Postura: Pro-negociación con gobierno</p>
-                        <p style="color:var(--text-secondary); margin-bottom:16px">• Declaración: "La paz no es propiedad privada o exclusivos de unos"</p>
-                        <p style="color:var(--text-secondary); margin-bottom:12px"><strong>Nuevo Ejército Bolivariano</strong></p>
-                        <p style="color:var(--text-secondary); margin-bottom:8px">• Líder: "Iván Márquez" (Luciano Marín Arango) y "Jhon 40"</p>
-                        <p style="color:var(--text-secondary); margin-bottom:8px">• Postura: Separado, postura diferente</p>
-                        <p style="color:var(--text-secondary)"><strong>• Estado de Márquez: "NO SE SABE SI SIGUE CON VIDA"</strong> — Caracol Radio publicó audio que lo confirma, pero InsightCrime cuestiona.</p>
+                        <p style="color:var(--gray-700); margin-bottom:10px"><strong>Coordinadora Nacional del Ejército Bolivariano</strong></p>
+                        <p style="color:var(--gray-700); margin-bottom:4px">• Líder: "Walter Mendoza" (José Vicente Lesmes) y "Araña" (Giovanny Rojas)</p>
+                        <p style="color:var(--gray-700); margin-bottom:10px">• Postura: Pro-negociación con gobierno</p>
+                        <p style="color:var(--gray-700); margin-bottom:10px"><strong>Nuevo Ejército Bolivariano</strong></p>
+                        <p style="color:var(--gray-700); margin-bottom:4px">• Líder: "Iván Márquez" (Luciano Marín Arango) y "Jhon 40"</p>
+                        <p style="color:var(--gray-700); margin-bottom:4px">• Postura: Separado</p>
+                        <p style="color:var(--gray-700)"><strong>• Estado de Márquez: "NO SE SABE SI SIGUE CON VIDA"</strong></p>
                     </div>
                 </div>
                 <div class="collapsible">
-                    <div class="collapsible-header">Muertes y debilitamiento <i class="fas fa-chevron-down"></i></div>
+                    <div class="collapsible-header">Debilitamiento y problemas legales <i class="fas fa-chevron-down"></i></div>
                     <div class="collapsible-body">
-                        <p style="color:var(--text-secondary); margin-bottom:8px"><strong>"Zarco Aldinever"</strong> (José Manuel Sierra Sabogal) — Segundo al mando. <strong>MUERTO</strong> por ELN en Venezuela. Disputa por narcotráfico.</p>
-                        <p style="color:var(--text-secondary); margin-bottom:8px"><strong>Consejo de Estado:</strong> Bloqueó segundo proceso político en 2026.</p>
-                        <p style="color:var(--text-secondary); margin-bottom:8px"><strong>JEP:</strong> No pueden acceder a beneficios por reincidencia (ya firmaron Acuerdo 2016).</p>
-                        <p style="color:var(--text-secondary)"><strong>Extradición:</strong> Iván Márquez está pedido en extradición por EE.UU. Fiscalía no puede suspender órdenes.</p>
+                        <p style="color:var(--gray-700); margin-bottom:6px"><strong>"Zarco Aldinever"</strong> — Segundo al mando. <strong>MUERTO</strong> por ELN en Venezuela.</p>
+                        <p style="color:var(--gray-700); margin-bottom:6px"><strong>Consejo de Estado:</strong> Bloqueó segundo proceso político en 2026.</p>
+                        <p style="color:var(--gray-700); margin-bottom:6px"><strong>JEP:</strong> No pueden acceder a beneficios por reincidencia.</p>
+                        <p style="color:var(--gray-700)"><strong>Extradición:</strong> Iván Márquez pedido en extradición por EE.UU.</p>
                     </div>
-                </div>
-                <div class="risk-box">
-                    <h4><i class="fas fa-exclamation-triangle"></i> Situación actual</h4>
-                    <ul>
-                        <li>División interna desde noviembre 2024 — dos facciones con agendas distintas</li>
-                        <li>Segundo al mando muerto por ELN en Venezuela</li>
-                        <li>Debilitamiento militar significativo</li>
-                        <li>No pueden acceder a JEP por reincidencia</li>
-                        <li>Nuevo gobierno: cero negociación política</li>
-                    </ul>
                 </div>
             </div>
 
             <!-- FREnte 33 -->
-            <div class="group-card orange">
-                <h3><span style="color:var(--accent-5)"><i class="fas fa-skull"></i></span> Frente 33 — EMC (Frente más violento)</h3>
+            <div class="group-card border-red">
+                <h3>Frente 33 — EMC (Frente más violento)</h3>
                 <div class="meta">
                     <div class="meta-item"><i class="fas fa-users"></i> ~3,500-4,000 miembros (EMC total)</div>
-                    <div class="meta-item"><i class="fas fa-map"></i> Catatumbo, Llanos Orientales, frontera</div>
-                    <div class="meta-item"><i class="fas fa-dollar-sign"></i> Narcotráfico, extorsión, minería</div>
+                    <div class="meta-item"><i class="fas fa-map-marker-alt"></i> Catatumbo, Llanos Orientales</div>
                     <div class="meta-item"><i class="fas fa-exclamation-triangle"></i> NO negocia</div>
                 </div>
-                <p style="color:var(--text-secondary); margin-bottom:16px">El frente más grande y violento del EMC. Originalmente Frente 15 de las FARC. Desde noviembre 2025 desplazó al ELN del Catatumbo. Responsable de reclutamiento forzado de +65 niños, +37 asesinados, +55,000 desplazados. NO participa en ningún proceso de paz. Líder: "Arturo" (Eduardo Cárdenas Triana).</p>
-                <div class="collapsible">
-                    <div class="collapsible-header">Expansión en Catatumbo — Guerra vs ELN <i class="fas fa-chevron-down"></i></div>
-                    <div class="collapsible-body">
-                        <p style="color:var(--text-secondary); margin-bottom:8px"><strong>Guerra ELN vs Frente 33:</strong> Enfrentamiento abierto desde enero 2025. El Frente 33 desplazó al ELN de gran parte del norte de Santander.</p>
-                        <p style="color:var(--text-secondary); margin-bottom:8px"><strong>Territorio:</strong> 87+ municipios en 16 departamentos. Expansión activa en Catatumbo.</p>
-                        <p style="color:var(--text-secondary); margin-bottom:8px"><strong>Economía:</strong> Narcotráfico principal. Expansión extorsionaria a comerciantes, industria, ganaderos y mineros.</p>
-                        <p style="color:var(--text-secondary)"><strong>Armas:</strong> Fusiles AK-47 y M4. Miles de armas de guerra.</p>
-                    </div>
-                </div>
+                <p style="color:var(--gray-700); margin-bottom:16px">El frente más grande y violento del EMC. Desde noviembre 2025 desplazó al ELN del Catatumbo. Responsable de reclutamiento forzado de +65 niños. NO participa en ningún proceso de paz. Líder: "Arturo" (Eduardo Cárdenas Triana).</p>
                 <div class="collapsible">
                     <div class="collapsible-header">Víctimas documentadas (nov 2025 - jul 2026) <i class="fas fa-chevron-down"></i></div>
                     <div class="collapsible-body">
-                        <p style="color:var(--text-secondary); margin-bottom:8px"><strong>Asesinados:</strong> +37 personas</p>
-                        <p style="color:var(--text-secondary); margin-bottom:8px"><strong>Desplazados:</strong> +55,000 personas</p>
-                        <p style="color:var(--text-secondary); margin-bottom:8px"><strong>Confinados:</strong> +30,000 personas</p>
-                        <p style="color:var(--text-secondary); margin-bottom:8px"><strong>Niños reclutados:</strong> +65 niños y adolescentes</p>
-                        <p style="color:var(--text-secondary); margin-bottom:8px"><strong>Víctimas de minas:</strong> +58 personas</p>
-                        <p style="color:var(--text-secondary); margin-bottom:8px"><strong>Violencia sexual:</strong> +6 víctimas</p>
-                        <p style="color:var(--text-secondary); margin-bottom:8px"><strong>Hostigados:</strong> 15+ personas</p>
-                        <p style="color:var(--text-secondary)"><strong>Lesionados:</strong> 6 personas</p>
+                        <p style="color:var(--gray-700); margin-bottom:6px"><strong>Asesinados:</strong> +37 personas</p>
+                        <p style="color:var(--gray-700); margin-bottom:6px"><strong>Desplazados:</strong> +55,000 personas</p>
+                        <p style="color:var(--gray-700); margin-bottom:6px"><strong>Confinados:</strong> +30,000 personas</p>
+                        <p style="color:var(--gray-700); margin-bottom:6px"><strong>Niños reclutados:</strong> +65 niños y adolescentes</p>
+                        <p style="color:var(--gray-700); margin-bottom:6px"><strong>Víctimas de minas:</strong> +58 personas</p>
+                        <p style="color:var(--gray-700); margin-bottom:6px"><strong>Violencia sexual:</strong> +6 víctimas</p>
+                        <p style="color:var(--gray-700)"><strong>Hostigados:</strong> 15+ personas</p>
                     </div>
                 </div>
                 <div class="risk-box">
                     <h4><i class="fas fa-exclamation-triangle"></i> Amenazas</h4>
                     <ul>
-                        <li>Mayor reclutamiento infantil de todos los grupos: +65 niños</li>
+                        <li>Mayor reclutamiento infantil: +65 niños</li>
                         <li>Expansión activa desplazando al ELN en Catatumbo</li>
-                        <li>Extorsión creciente a comerciantes y agricultores</li>
                         <li>Sin proceso de paz ni intención de negociar</li>
-                        <li>Guerra abierta con ELN genera más víctimas civiles</li>
                     </ul>
                 </div>
             </div>
 
             <!-- COMUNEROS DEL SUR -->
-            <div class="group-card green">
-                <h3><span style="color:var(--accent-4)"><i class="fas fa-leaf"></i></span> Comuneros del Sur — CJGP</h3>
+            <div class="group-card border-green">
+                <h3>Comuneros del Sur — CJGP</h3>
                 <div class="meta">
                     <div class="meta-item"><i class="fas fa-users"></i> ~300-800 miembros</div>
-                    <div class="meta-item"><i class="fas fa-map"></i> Cauca, Nariño, Huila, Norte de Santander</div>
-                    <div class="meta-item"><i class="fas fa-dollar-sign"></i> Narcotráfico, extorsión, minería</div>
+                    <div class="meta-item"><i class="fas fa-map-marker-alt"></i> Cauca, Nariño, Huila</div>
                     <div class="meta-item"><i class="fas fa-flag"></i> Proceso exploratorio en curso</div>
                 </div>
-                <p style="color:var(--text-secondary); margin-bottom:16px">Oficialmente "Comandos Jacobinos de la Guerra Popular" (CJGP). Separados del ELN Suroccidental en mayo 2024. Originalmente Frente 15 de las FARC (después Frente Armando Cortés). Proceso de paz exploratorio con Noruega y Venezuela como garantes.</p>
+                <p style="color:var(--gray-700); margin-bottom:16px">Oficialmente "Comandos Jacobinos de la Guerra Popular". Separados del ELN Suroccidental en mayo 2024. Proceso de paz exploratorio con Noruega y Venezuela como garantes.</p>
                 <div class="collapsible">
-                    <div class="collapsible-header">Liderazgo actual <i class="fas fa-chevron-down"></i></div>
+                    <div class="collapsible-header">Liderazgo y víctimas <i class="fas fa-chevron-down"></i></div>
                     <div class="collapsible-body">
-                        <p style="color:var(--text-secondary); margin-bottom:8px"><strong>"Nico"</strong> (Carlos Antonio Galán) — Presidente del CJGP.</p>
-                        <p style="color:var(--text-secondary); margin-bottom:8px"><strong>"Mauro"</strong> (Juan Carlos Pachón) — Jefe estratégico militar.</p>
-                        <p style="color:var(--text-secondary); margin-bottom:8px"><strong>"El Tábano"</strong> (Francisco Villa Rincón) — Finanzas.</p>
-                        <p style="color:var(--text-secondary); margin-bottom:8px"><strong>"Cachorro"</strong> (José Augusto Vásquez) — Logística.</p>
-                        <p style="color:var(--text-secondary)"><strong>"John Mecha"</strong> — Líder anterior. <strong>CAPTURADO en 2023.</strong></p>
+                        <p style="color:var(--gray-700); margin-bottom:6px"><strong>"Nico"</strong> (Carlos Antonio Galán) — Presidente.</p>
+                        <p style="color:var(--gray-700); margin-bottom:6px"><strong>"Mauro"</strong> (Juan Carlos Pachón) — Jefe estratégico militar.</p>
+                        <p style="color:var(--gray-700); margin-bottom:6px"><strong>"John Mecha"</strong> — Líder anterior. <strong>CAPTURADO en 2023.</strong></p>
+                        <p style="color:var(--gray-700); margin-bottom:6px"><strong>Víctimas:</strong> +45 asesinados, +2,000 desplazados, +5,000 confinados, +25 minas antipersona.</p>
+                        <p style="color:var(--gray-700)"><strong>Territorio:</strong> Expansión activa en Pacífico y Norte de Santander.</p>
                     </div>
-                </div>
-                <div class="collapsible">
-                    <div class="collapsible-header">Víctimas y territorio <i class="fas fa-chevron-down"></i></div>
-                    <div class="collapsible-body">
-                        <p style="color:var(--text-secondary); margin-bottom:8px"><strong>Asesinados:</strong> +45 personas en 2025-2026</p>
-                        <p style="color:var(--text-secondary); margin-bottom:8px"><strong>Desplazados:</strong> +2,000 personas</p>
-                        <p style="color:var(--text-secondary); margin-bottom:8px"><strong>Confinados:</strong> +5,000 personas</p>
-                        <p style="color:var(--text-secondary); margin-bottom:8px"><strong>Minas:</strong> +25 víctimas</p>
-                        <p style="color:var(--text-secondary); margin-bottom:8px"><strong>Territorio:</strong> Sur de Colombia — Cauca, Nariño, Huila. Expansión en Pacífico y Norte de Santander.</p>
-                        <p style="color:var(--text-secondary)"><strong>Economía:</strong> Producción coca en Cauca, tránsito por Pacífico, extorsión a negocios locales.</p>
-                    </div>
-                </div>
-                <div class="risk-box">
-                    <h4><i class="fas fa-exclamation-triangle"></i> Situación</h4>
-                    <ul>
-                        <li>Proceso de paz exploratorio con garantes (Noruega, Venezuela)</li>
-                        <li>Estructura fragmentada tras captura de "John Mecha"</li>
-                        <li>Expansión en Pacífico en conflicto con Clan del Golfo</li>
-                        <li>Coordinación con Segunda Marquetalia en Norte de Santander</li>
-                        <li>Nuevo gobierno: proceso en peligro</li>
-                    </ul>
                 </div>
             </div>
         </section>
 
         <!-- ECONOMÍA DEL CONFLICTO -->
-        <section id="economia" class="section fade-in">
+        <section id="economia" class="section section-alt fade-in">
             <div class="section-header">
-                <div class="section-tag"><i class="fas fa-chart-line"></i> ECONOMÍA DEL CONFLICTO</div>
+                <div class="section-tag">Economía del Conflicto</div>
                 <h2>Narcotráfico, Minería y Extorsión</h2>
                 <p class="section-desc">Las economías ilícitas financian a todos los grupos armados. Colombia es el principal productor mundial de cocaína.</p>
             </div>
 
             <div class="chart-grid">
                 <div class="chart-card">
-                    <h3><i class="fas fa-seedling" style="color:var(--accent-4)"></i> Hectáreas de Coca (UNODC)</h3>
+                    <h3><i class="fas fa-seedling" style="color:var(--green); margin-right:8px"></i>Hectáreas de Coca (UNODC)</h3>
                     <div class="chart-container">
                         <canvas id="cocaChart"></canvas>
                     </div>
                 </div>
                 <div class="chart-card">
-                    <h3><i class="fas fa-mountain" style="color:var(--accent-5)"></i> Minería Ilegal: +28%</h3>
+                    <h3><i class="fas fa-mountain" style="color:var(--yellow); margin-right:8px"></i>Minería Ilegal: +28%</h3>
                     <div class="chart-container">
                         <canvas id="mineriaChart"></canvas>
                     </div>
@@ -1080,46 +993,46 @@
 
             <div class="stat-grid">
                 <div class="stat-card">
-                    <div class="stat-number color-4">253K</div>
+                    <div class="stat-number color-green">253K</div>
                     <div class="stat-label">Hectáreas coca (2023)</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number color-5">82K</div>
+                    <div class="stat-number color-yellow">82K</div>
                     <div class="stat-label">Hectáreas minería ilegal</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number color-3">127T</div>
+                    <div class="stat-number color-red">127T</div>
                     <div class="stat-label">Cocaína incautada Q1 2026</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number color-1">$29B</div>
+                    <div class="stat-number color-navy">$29B</div>
                     <div class="stat-label">Pesos extorsión 2023-2025</div>
                 </div>
             </div>
 
-            <div class="group-card red">
-                <h3><span style="color:var(--accent-3)"><i class="fas fa-map-marked-alt"></i></span> 14 Zonas de Guerra</h3>
-                <p style="color:var(--text-secondary); margin-bottom:16px">Según El Tiempo (abril 2026), existen al menos 14 territorios en disputa directa entre grupos armados. Varios coinciden con zonas de minería ilegal y economías ilícitas.</p>
+            <div class="group-card border-red">
+                <h3>14 Zonas de Guerra</h3>
+                <p style="color:var(--gray-700); margin-bottom:16px">Según El Tiempo (abril 2026), existen al menos 14 territorios en disputa directa entre grupos armados.</p>
                 <div class="table-wrap">
                     <table>
                         <thead>
-                            <tr><th>Zona</th><th>Grupos en disputa</th><th>Economía</th><th>Nivel violencia</th></tr>
+                            <tr><th>Zona</th><th>Grupos en disputa</th><th>Economía</th><th>Nivel</th></tr>
                         </thead>
                         <tbody>
-                            <tr><td><strong>Suroccidente</strong></td><td>ELN, disidencias, Clan del Golfo</td><td>Narcotráfico</td><td><span class="badge badge-danger">CRÍTICO</span></td></tr>
-                            <tr><td><strong>Catatumbo</strong></td><td>ELN vs. Frente 33</td><td>Narcotríaftico, minería</td><td><span class="badge badge-danger">CRÍTICO</span></td></tr>
-                            <tr><td><strong>Chocó</strong></td><td>ELN vs. Clan del Golfo</td><td>Minería, rutas fluviales</td><td><span class="badge badge-danger">ALTO</span></td></tr>
-                            <tr><td><strong>Antioquia</strong></td><td>Disidencias vs. Clan del Golfo</td><td>Corredor estratégico</td><td><span class="badge badge-danger">ALTO</span></td></tr>
-                            <tr><td><strong>Bolívar</strong></td><td>ELN vs. Clan del Golfo</td><td>Narcotráfico, minería</td><td><span class="badge badge-warning">MEDIO</span></td></tr>
-                            <tr><td><strong>Guaviare</strong></td><td>Disidencias entre sí</td><td>Narcotráfico</td><td><span class="badge badge-warning">MEDIO</span></td></tr>
-                            <tr><td><strong>Caquetá</strong></td><td>EMC vs. estructuras rivales</td><td>Narcotráfico</td><td><span class="badge badge-warning">MEDIO</span></td></tr>
-                            <tr><td><strong>Casanare</strong></td><td>Segunda Marquetalia vs. ELN</td><td>Minería, petróleo</td><td><span class="badge badge-warning">MEDIO</span></td></tr>
-                            <tr><td><strong>Guainía</strong></td><td>ELN vs. Segunda Marquetalia</td><td>Minería ilegal</td><td><span class="badge badge-info">BAJO</span></td></tr>
-                            <tr><td><strong>Nariño</strong></td><td>Múltiples actores</td><td>Narcotráfico fronterizo</td><td><span class="badge badge-danger">ALTO</span></td></tr>
-                            <tr><td><strong>Cauca</strong></td><td>ELN, Comuneros, disidencias</td><td>Minería, narcotráfico</td><td><span class="badge badge-danger">ALTO</span></td></tr>
-                            <tr><td><strong>N. Santander</strong></td><td>ELN, Frente 33, Seg. Marquetalia</td><td>Frontera, narcotráfico</td><td><span class="badge badge-danger">CRÍTICO</span></td></tr>
-                            <tr><td><strong>Arauca</strong></td><td>ELN vs. EMC</td><td>Petróleo, frontera</td><td><span class="badge badge-warning">MEDIO</span></td></tr>
-                            <tr><td><strong>Putumayo</strong></td><td>EMC, disidencias múltiples</td><td>Narcotráfico</td><td><span class="badge badge-danger">ALTO</span></td></tr>
+                            <tr><td><strong>Suroccidente</strong></td><td>ELN, disidencias, Clan del Golfo</td><td>Narcotráfico</td><td><span class="badge badge-danger">Crítico</span></td></tr>
+                            <tr><td><strong>Catatumbo</strong></td><td>ELN vs. Frente 33</td><td>Narcotráfico, minería</td><td><span class="badge badge-danger">Crítico</span></td></tr>
+                            <tr><td><strong>N. Santander</strong></td><td>ELN, Frente 33, Seg. Marquetalia</td><td>Frontera, narcotráfico</td><td><span class="badge badge-danger">Crítico</span></td></tr>
+                            <tr><td><strong>Chocó</strong></td><td>ELN vs. Clan del Golfo</td><td>Minería, rutas fluviales</td><td><span class="badge badge-danger">Alto</span></td></tr>
+                            <tr><td><strong>Antioquia</strong></td><td>Disidencias vs. Clan del Golfo</td><td>Corredor estratégico</td><td><span class="badge badge-danger">Alto</span></td></tr>
+                            <tr><td><strong>Nariño</strong></td><td>Múltiples actores</td><td>Narcotráfico fronterizo</td><td><span class="badge badge-danger">Alto</span></td></tr>
+                            <tr><td><strong>Cauca</strong></td><td>ELN, Comuneros, disidencias</td><td>Minería, narcotráfico</td><td><span class="badge badge-danger">Alto</span></td></tr>
+                            <tr><td><strong>Putumayo</strong></td><td>EMC, disidencias múltiples</td><td>Narcotráfico</td><td><span class="badge badge-danger">Alto</span></td></tr>
+                            <tr><td><strong>Bolívar</strong></td><td>ELN vs. Clan del Golfo</td><td>Narcotráfico, minería</td><td><span class="badge badge-warning">Medio</span></td></tr>
+                            <tr><td><strong>Guaviare</strong></td><td>Disidencias entre sí</td><td>Narcotráfico</td><td><span class="badge badge-warning">Medio</span></td></tr>
+                            <tr><td><strong>Caquetá</strong></td><td>EMC vs. estructuras rivales</td><td>Narcotráfico</td><td><span class="badge badge-warning">Medio</span></td></tr>
+                            <tr><td><strong>Casanare</strong></td><td>Seg. Marquetalia vs. ELN</td><td>Minería, petróleo</td><td><span class="badge badge-warning">Medio</span></td></tr>
+                            <tr><td><strong>Arauca</strong></td><td>ELN vs. EMC</td><td>Petróleo, frontera</td><td><span class="badge badge-warning">Medio</span></td></tr>
+                            <tr><td><strong>Guainía</strong></td><td>ELN vs. Seg. Marquetalia</td><td>Minería ilegal</td><td><span class="badge badge-info">Bajo</span></td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -1129,39 +1042,39 @@
         <!-- CRISIS HUMANITARIA -->
         <section id="crisis" class="section fade-in">
             <div class="section-header">
-                <div class="section-tag"><i class="fas fa-heart-broken"></i> CRISIS HUMANITARIA</div>
+                <div class="section-tag">Crisis Humanitaria</div>
                 <h2>Catatumbo y Más Allá</h2>
                 <p class="section-desc">La peor crisis humanitaria en años. Miles de personas desplazadas, confinadas y sin acceso a servicios básicos.</p>
             </div>
 
             <div class="stat-grid">
                 <div class="stat-card">
-                    <div class="stat-number color-3">55,000+</div>
+                    <div class="stat-number color-red">55,000+</div>
                     <div class="stat-label">Desplazados Catatumbo</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number color-5">19,000</div>
+                    <div class="stat-number color-yellow">19,000</div>
                     <div class="stat-label">Confinados</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number color-2">19,500</div>
+                    <div class="stat-number color-blue">19,500</div>
                     <div class="stat-label">Niños sin clases</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number color-1">138,000+</div>
+                    <div class="stat-number color-navy">138,000+</div>
                     <div class="stat-label">Confinados nacional</div>
                 </div>
             </div>
 
             <div class="chart-grid">
                 <div class="chart-card">
-                    <h3><i class="fas fa-users-slash" style="color:var(--accent-3)"></i> Desplazamiento por región</h3>
+                    <h3>Desplazamiento por región</h3>
                     <div class="chart-container">
                         <canvas id="desplazadosChart"></canvas>
                     </div>
                 </div>
                 <div class="chart-card">
-                    <h3><i class="fas fa-child" style="color:var(--accent-2)"></i> Niños soldados: FREnte 33</h3>
+                    <h3>Niños soldados: Frente 33</h3>
                     <div class="chart-container">
                         <canvas id="ninosChart"></canvas>
                     </div>
@@ -1181,49 +1094,49 @@
         </section>
 
         <!-- LÍDERES SOCIALES -->
-        <section id="lideres" class="section fade-in">
+        <section id="lideres" class="section section-alt fade-in">
             <div class="section-header">
-                <div class="section-tag"><i class="fas fa-user-shield"></i> LÍDERES SOCIALES</div>
+                <div class="section-tag">Líderes Sociales</div>
                 <h2>Asesinatos de Defensores</h2>
                 <p class="section-desc">Cada dos días asesinan a un líder social en Colombia. 1,921 líderes asesinados desde el Acuerdo de Paz de 2016.</p>
             </div>
 
             <div class="stat-grid">
                 <div class="stat-card">
-                    <div class="stat-number color-3">187</div>
+                    <div class="stat-number color-red">187</div>
                     <div class="stat-label">Asesinados en 2025</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number color-5">85</div>
+                    <div class="stat-number color-yellow">85</div>
                     <div class="stat-label">Asesinados en 2026 (jul)</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number color-1">1,921</div>
+                    <div class="stat-number color-navy">1,921</div>
                     <div class="stat-label">Total desde 2016</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number color-2">90%+</div>
+                    <div class="stat-number color-gray">90%+</div>
                     <div class="stat-label">Impunidad</div>
                 </div>
             </div>
 
             <div class="chart-grid">
                 <div class="chart-card">
-                    <h3><i class="fas fa-chart-bar" style="color:var(--accent-3)"></i> Asesinatos por año</h3>
+                    <h3>Asesinatos por año</h3>
                     <div class="chart-container">
                         <canvas id="lideresChart"></canvas>
                     </div>
                 </div>
                 <div class="chart-card">
-                    <h3><i class="fas fa-chart-pie" style="color:var(--accent-2)"></i> Por sector social</h3>
+                    <h3>Por sector social</h3>
                     <div class="chart-container">
                         <canvas id="sectoresChart"></canvas>
                     </div>
                 </div>
             </div>
 
-            <div class="group-card red">
-                <h3><span style="color:var(--accent-3)"><i class="fas fa-map-pin"></i></span> Departamentos más afectados (2025)</h3>
+            <div class="group-card border-red">
+                <h3>Departamentos más afectados (2025)</h3>
                 <div class="table-wrap">
                     <table>
                         <thead><tr><th>Departamento</th><th>Casos</th><th>Grupos armados</th></tr></thead>
@@ -1242,31 +1155,31 @@
         <!-- MARCO JURÍDICO -->
         <section id="marco-juridico" class="section fade-in">
             <div class="section-header">
-                <div class="section-tag"><i class="fas fa-gavel"></i> MARCO JURÍDICO</div>
+                <div class="section-tag">Marco Jurídico</div>
                 <h2>Ley 2272, JEP y Justicia Transicional</h2>
-                <p class="section-desc">El marco legal para la justicia transicional en Colombia. Ley 2272 de 2022 y la Jurisdicción Especial para la Paz.</p>
+                <p class="section-desc">El marco legal para la justicia transicional en Colombia.</p>
             </div>
 
             <div class="card-grid">
                 <div class="card">
-                    <div class="card-icon bg-1 color-1"><i class="fas fa-balance-scale"></i></div>
+                    <div class="card-icon bg-blue"><i class="fas fa-balance-scale"></i></div>
                     <h3>Ley 2272 de 2022</h3>
                     <p>Crea mecanismo de justicia transicional para la paz. Requiere postulación gubernamental, voluntad de sometimiento, compromiso de verdad, reparación y no repetición.</p>
                 </div>
                 <div class="card">
-                    <div class="card-icon bg-2 color-2"><i class="fas fa-university"></i></div>
+                    <div class="card-icon bg-blue"><i class="fas fa-university"></i></div>
                     <h3>Jurisdicción Especial para la Paz</h3>
                     <p>Sala de Justicia, Sala de Amnistía, Unidad de Investigación y Acusación, Unidad de Búsqueda. Principios: verdad, reparación, no repetición.</p>
                 </div>
                 <div class="card">
-                    <div class="card-icon bg-3 color-3"><i class="fas fa-redo"></i></div>
+                    <div class="card-icon bg-red"><i class="fas fa-redo"></i></div>
                     <h3>Sometimiento ELN</h3>
                     <p>Nivel bajo a medio. En curso diálogos (México 2025). Cooperación parcial con JEP. Verdad completa no alcanzada.</p>
                 </div>
                 <div class="card">
-                    <div class="card-icon bg-5 color-5"><i class="fas fa-exclamation-circle"></i></div>
+                    <div class="card-icon bg-yellow"><i class="fas fa-exclamation-circle"></i></div>
                     <h3>Sometimiento Clan del Golfo</h3>
-                    <p>Declaración parcial noviembre 2021. Grupo sigue operando. Extradición de "Chiquito Malo" reactivada julio 2026. Cooperación limitada.</p>
+                    <p>Declaración parcial noviembre 2021. Grupo sigue operando. Extradición reactivada julio 2026. Cooperación limitada.</p>
                 </div>
             </div>
 
@@ -1277,15 +1190,14 @@
                     <li>Duplicidad entre JEP y Justicia Ordinaria</li>
                     <li>Recursos insuficientes para investigaciones complejas</li>
                     <li>Grupos armados no cooperan plenamente</li>
-                    <li>Falta de voluntad política para reformas</li>
                 </ul>
             </div>
         </section>
 
         <!-- PROCESOS DE PAZ -->
-        <section id="procesos-paz" class="section fade-in">
+        <section id="procesos-paz" class="section section-alt fade-in">
             <div class="section-header">
-                <div class="section-tag"><i class="fas fa-dove"></i> PROCESOS DE PAZ</div>
+                <div class="section-tag">Procesos de Paz</div>
                 <h2>Estado de las Negociaciones</h2>
                 <p class="section-desc">Diferentes estados para cada grupo. ELN suspendido, EMC en curso, Clan del Golfo en diálogos.</p>
             </div>
@@ -1298,7 +1210,7 @@
             </div>
 
             <div id="tab-eln" class="tab-content active">
-                <div class="group-card blue">
+                <div class="group-card border-navy">
                     <h3>Diálogos ELN — Suspendidos</h3>
                     <div class="meta">
                         <div class="meta-item"><i class="fas fa-calendar"></i> Nov 2022 - Ene 2025</div>
@@ -1308,16 +1220,16 @@
                     <div class="collapsible">
                         <div class="collapsible-header">Cronología completa <i class="fas fa-chevron-down"></i></div>
                         <div class="collapsible-body">
-                            <p style="color:var(--text-secondary); margin-bottom:8px"><strong>Nov 2022:</strong> Reinicio de negociaciones en Caracas.</p>
-                            <p style="color:var(--text-secondary); margin-bottom:8px"><strong>Mar 2023:</strong> Acuerdo de México — marco de construcción de paz.</p>
-                            <p style="color:var(--text-secondary); margin-bottom:8px"><strong>Jun 2023:</strong> Acuerdo 9 — mecanismo de participación ciudadana.</p>
-                            <p style="color:var(--text-secondary); margin-bottom:8px"><strong>Dic 2023:</strong> V Ciclo — acuerdos sobre cese al fuego y zonas críticas.</p>
-                            <p style="color:var(--text-secondary); margin-bottom:8px"><strong>Abr 2024:</strong> VII Ciclo suspendido por ELN.</p>
-                            <p style="color:var(--text-secondary)"><strong>Ene 2025:</strong> Petro suspende diálogos tras ataques del ELN. "El ELN no tiene voluntad de paz".</p>
+                            <p style="color:var(--gray-700); margin-bottom:6px"><strong>Nov 2022:</strong> Reinicio de negociaciones en Caracas.</p>
+                            <p style="color:var(--gray-700); margin-bottom:6px"><strong>Mar 2023:</strong> Acuerdo de México — marco de construcción de paz.</p>
+                            <p style="color:var(--gray-700); margin-bottom:6px"><strong>Jun 2023:</strong> Acuerdo 9 — mecanismo de participación ciudadana.</p>
+                            <p style="color:var(--gray-700); margin-bottom:6px"><strong>Dic 2023:</strong> V Ciclo — acuerdos sobre cese al fuego.</p>
+                            <p style="color:var(--gray-700); margin-bottom:6px"><strong>Abr 2024:</strong> VII Ciclo suspendido por ELN.</p>
+                            <p style="color:var(--gray-700)"><strong>Ene 2025:</strong> Petro suspende diálogos. "El ELN no tiene voluntad de paz".</p>
                         </div>
                     </div>
                     <div class="risk-box">
-                        <h4><i class="fas fa-exclamation-triangle"></i> Estado actual</h4>
+                        <h4>Estado actual</h4>
                         <ul>
                             <li>Diálogos suspendidos desde enero 2025</li>
                             <li>ELN se sometió a Venezuela (junio 2026)</li>
@@ -1328,7 +1240,7 @@
             </div>
 
             <div id="tab-emc" class="tab-content">
-                <div class="group-card purple">
+                <div class="group-card border-blue">
                     <h3>Cese al Fuego EMC — En curso</h3>
                     <div class="meta">
                         <div class="meta-item"><i class="fas fa-calendar"></i> Jun 2025 - presente</div>
@@ -1338,51 +1250,51 @@
                     <div class="collapsible">
                         <div class="collapsible-header">Cronología completa <i class="fas fa-chevron-down"></i></div>
                         <div class="collapsible-body">
-                            <p style="color:var(--text-secondary); margin-bottom:8px"><strong>Jun 2025:</strong> Inicio de diálogos gobierno-EMC.</p>
-                            <p style="color:var(--text-secondary); margin-bottom:8px"><strong>Nov 2025:</strong> Anuncio de cese al fuego bilateral.</p>
-                            <p style="color:var(--text-secondary); margin-bottom:8px"><strong>Dic 2025:</strong> Firma de Acuerdo de Cese al Fuego.</p>
-                            <p style="color:var(--text-secondary); margin-bottom:8px"><strong>Abr 2026:</strong> Declaratoria de fin de la confrontación armada.</p>
-                            <p style="color:var(--text-secondary)"><strong>Jul 2026:</strong> Conformación del Grupo de Trabajo para protocolos.</p>
+                            <p style="color:var(--gray-700); margin-bottom:6px"><strong>Jun 2025:</strong> Inicio de diálogos gobierno-EMC.</p>
+                            <p style="color:var(--gray-700); margin-bottom:6px"><strong>Nov 2025:</strong> Anuncio de cese al fuego bilateral.</p>
+                            <p style="color:var(--gray-700); margin-bottom:6px"><strong>Dic 2025:</strong> Firma de Acuerdo de Cese al Fuego.</p>
+                            <p style="color:var(--gray-700); margin-bottom:6px"><strong>Abr 2026:</strong> Declaratoria de fin de la confrontación armada.</p>
+                            <p style="color:var(--gray-700)"><strong>Jul 2026:</strong> Conformación del Grupo de Trabajo para protocolos.</p>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div id="tab-clan" class="tab-content">
-                <div class="group-card red">
+                <div class="group-card border-red">
                     <h3>Clan del Golfo — En diálogos</h3>
                     <div class="meta">
                         <div class="meta-item"><i class="fas fa-calendar"></i> Desde finales 2025</div>
                         <div class="meta-item"><i class="fas fa-map-marker-alt"></i> Qatar (mesa de negociación)</div>
                         <div class="meta-item"><i class="fas fa-flag"></i> En curso</div>
                     </div>
-                    <p style="color:var(--text-secondary)">Mesa de negociación instalada en Qatar. Líder "Chiquito Malo" extraditado a EE.UU. Reincidencia documentada en procesos anteriores.</p>
+                    <p style="color:var(--gray-700)">Mesa de negociación instalada en Qatar. Líder "Chiquito Malo" extraditado a EE.UU. Reincidencia documentada en procesos anteriores.</p>
                 </div>
             </div>
 
             <div id="tab-sustitucion" class="tab-content">
-                <div class="group-card green">
+                <div class="group-card border-green">
                     <h3>Sustitución de Cultivos — PNIS y RenHacemos</h3>
                     <div class="meta">
                         <div class="meta-item"><i class="fas fa-calendar"></i> 2016 - presente</div>
                         <div class="meta-item"><i class="fas fa-map-marker-alt"></i> Nacional</div>
                     </div>
-                    <div class="stat-grid" style="margin-top:20px">
+                    <div class="stat-grid" style="margin-top:16px">
                         <div class="stat-card">
-                            <div class="stat-number color-4">99,097</div>
+                            <div class="stat-number color-green">99,097</div>
                             <div class="stat-label">Familias con cultivos legales</div>
                         </div>
                         <div class="stat-card">
-                            <div class="stat-number color-5">3,636</div>
+                            <div class="stat-number color-yellow">3,636</div>
                             <div class="stat-label">Hectáreas erradicadas 2025</div>
                         </div>
                         <div class="stat-card">
-                            <div class="stat-number color-3">$1.6B</div>
+                            <div class="stat-number color-red">$1.6B</div>
                             <div class="stat-label">Sobrepago detectado</div>
                         </div>
                     </div>
-                    <div class="risk-box" style="margin-top:20px">
-                        <h4><i class="fas fa-exclamation-triangle"></i> Problemas</h4>
+                    <div class="risk-box" style="margin-top:16px">
+                        <h4>Problemas</h4>
                         <ul>
                             <li>Contraloría detectó sobrepago de $1,618 millones en interventoría</li>
                             <li>CONFIS no constituyó recursos para Fondo Colombia en Paz (dic 2024)</li>
@@ -1396,189 +1308,87 @@
         <!-- VENEZUELA -->
         <section id="venezuela" class="section fade-in">
             <div class="section-header">
-                <div class="section-tag"><i class="fas fa-globe-americas"></i> VENEZUELA</div>
+                <div class="section-tag">Venezuela</div>
                 <h2>Frontera y Rol en el Conflicto</h2>
-                <p class="section-desc">Venezuela como territorio de retaguardia para múltiples grupos armados colombianos. ELN se somete al gobierno Maduro.</p>
+                <p class="section-desc">Venezuela como territorio de retaguardia para múltiples grupos armados colombianos.</p>
             </div>
 
             <div class="stat-grid">
                 <div class="stat-card">
-                    <div class="stat-number color-1">2.5M</div>
+                    <div class="stat-number color-navy">2.5M</div>
                     <div class="stat-label">Migrantes venezolanos en Colombia</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number color-3">5</div>
+                    <div class="stat-number color-red">5</div>
                     <div class="stat-label">Grupos en territorio venezolano</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number color-5">5</div>
+                    <div class="stat-number color-yellow">5</div>
                     <div class="stat-label">Estados venezolanos con presencia</div>
                 </div>
             </div>
 
-            <div class="group-card blue">
-                <h3><span style="color:var(--accent-1)"><i class="fas fa-flag"></i></span> Sometimiento del ELN a Venezuela</h3>
-                <p style="color:var(--text-secondary); margin-bottom:16px">En junio 2026, el gobierno de Maduro declaró que el ELN se sometió a su autoridad. Genera incertidumbre sobre el futuro de las negociaciones con Colombia.</p>
+            <div class="group-card border-navy">
+                <h3>Sometimiento del ELN a Venezuela</h3>
+                <p style="color:var(--gray-700); margin-bottom:16px">En junio 2026, el gobierno de Maduro declaró que el ELN se sometió a su autoridad. Genera incertidumbre sobre el futuro de las negociaciones con Colombia.</p>
                 <div class="collapsible">
                     <div class="collapsible-header">Grupos colombianos en Venezuela <i class="fas fa-chevron-down"></i></div>
                     <div class="collapsible-body">
-                        <p style="color:var(--text-secondary); margin-bottom:8px"><strong>ELN:</strong> Zulia, Apure, Táchira — operaciones transfronterizas</p>
-                        <p style="color:var(--text-secondary); margin-bottom:8px"><strong>Disidencias FARC:</strong> Apure, Bolívar — minería, narcotráfico</p>
-                        <p style="color:var(--text-secondary); margin-bottom:8px"><strong>Clan del Golfo:</strong> Zulia, Falcón — rutas de tránsito</p>
-                        <p style="color:var(--text-secondary)"><strong>Segunda Marquetalia:</strong> Apure — logística, descanso</p>
+                        <p style="color:var(--gray-700); margin-bottom:6px"><strong>ELN:</strong> Zulia, Apure, Táchira — operaciones transfronterizas</p>
+                        <p style="color:var(--gray-700); margin-bottom:6px"><strong>Disidencias FARC:</strong> Apure, Bolívar — minería, narcotráfico</p>
+                        <p style="color:var(--gray-700); margin-bottom:6px"><strong>Clan del Golfo:</strong> Zulia, Falcón — rutas de tránsito</p>
+                        <p style="color:var(--gray-700)"><strong>Segunda Marquetalia:</strong> Apure — logística, descanso</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ACTORES INTERNACIONALES -->
-        <section id="internacionales" class="section fade-in">
+        <!-- NUEVO GOBIERNO -->
+        <section id="espriella" class="section section-alt fade-in">
             <div class="section-header">
-                <div class="section-tag"><i class="fas fa-globe"></i> ACTORES INTERNACIONALES</div>
-                <h2>ONU, EE.UU., UE y ONG</h2>
-                <p class="section-desc">Múltiples actores internacionales involucrados en monitoreo, mediación y cooperación.</p>
-            </div>
-
-            <div class="card-grid">
-                <div class="card">
-                    <div class="card-icon bg-1 color-1"><i class="fas fa-flag-usa"></i></div>
-                    <h3>Estados Unidos</h3>
-                    <p>Política "no paz total". Exigencia de fin al narcotráfico. Cooperación militar y antidrogas. Base en Palanquero.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon bg-2 color-2"><i class="fas fa-landmark"></i></div>
-                    <h3>Unión Europea</h3>
-                    <p>Facilitador y garante. Participación en Mesa de Diálogos. Financiamiento de programas de paz y desarrollo.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon bg-3 color-3"><i class="fas fa-hands-helping"></i></div>
-                    <h3>ONU / ACNUR</h3>
-                    <p>Protección de refugiados y desplazados. Coordinación humanitaria. 2.5 millones de refugiados venezolanos.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon bg-4 color-4"><i class="fas fa-shield-alt"></i></div>
-                    <h3>CICR</h3>
-                    <p>Protección civil. Acompañamiento humanitario. Monitoreo de derechos humanos en zonas de conflicto.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon bg-5 color-5"><i class="fas fa-landmark"></i></div>
-                    <h3>Cuba y Noruega</h3>
-                    <p>Garantes de procesos de paz. Cuba: sede ELN. Noruega: garante EMC. Mediación internacional.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon bg-1 color-1"><i class="fas fa-search"></i></div>
-                    <h3>Indepaz, FIP, CERAC</h3>
-                    <p>Centros de investigación colombianos. Monitoreo de grupos armados, líderes sociales, procesos de paz.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- DATOS HISTÓRICOS -->
-        <section id="datos-historicos" class="section fade-in">
-            <div class="section-header">
-                <div class="section-tag"><i class="fas fa-chart-bar"></i> DATOS HISTÓRICOS</div>
-                <h2>Cifras del Conflicto Armado</h2>
-                <p class="section-desc">Más de 60 años de conflicto. 260,000+ muertos, 121,000+ desaparecidos, 8+ millones de desplazados.</p>
-            </div>
-
-            <div class="stat-grid">
-                <div class="stat-card">
-                    <div class="stat-number color-3">260,000+</div>
-                    <div class="stat-label">Personas asesinadas</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number color-5">121,000+</div>
-                    <div class="stat-label">Desaparecidos</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number color-1">8M+</div>
-                    <div class="stat-label">Desplazados internos</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number color-4">9M+</div>
-                    <div class="stat-label">Víctimas registradas</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number color-2">18,000+</div>
-                    <div class="stat-label">Niños soldados reclutados</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number color-3">450,000+</div>
-                    <div class="stat-label">Homicidios relacionados</div>
-                </div>
-            </div>
-
-            <div class="chart-grid">
-                <div class="chart-card">
-                    <h3><i class="fas fa-chart-line" style="color:var(--accent-3)"></i> Víctimas por tipo de violencia</h3>
-                    <div class="chart-container">
-                        <canvas id="victimasChart"></canvas>
-                    </div>
-                </div>
-                <div class="chart-card">
-                    <h3><i class="fas fa-chart-pie" style="color:var(--accent-1)"></i> Grupos responsables</h3>
-                    <div class="chart-container">
-                        <canvas id="responsablesChart"></canvas>
-                    </div>
-                </div>
-            </div>
-
-            <div class="group-card blue">
-                <h3><span style="color:var(--accent-1)"><i class="fas fa-database"></i></span> Fuentes de datos históricos</h3>
-                <div class="collapsible">
-                    <div class="collapsible-header">Cifras verificadas <i class="fas fa-chevron-down"></i></div>
-                    <div class="collapsible-body">
-                        <p style="color:var(--text-secondary); margin-bottom:8px"><strong>OCHA:</strong> 8+ millones de desplazados internos</p>
-                        <p style="color:var(--text-secondary); margin-bottom:8px"><strong>Centro Nacional de Memoria Histórica:</strong> 260,000+ asesinatos</p>
-                        <p style="color:var(--text-secondary); margin-bottom:8px"><strong>Unidad de Búsqueda:</strong> 121,000+ desaparecidos</p>
-                        <p style="color:var(--text-secondary); margin-bottom:8px"><strong>Registro Único de Víctimas:</strong> 9+ millones registradas</p>
-                        <p style="color:var(--text-secondary)"><strong>Verdad Abierta:</strong> 18,000+ niños soldados documentados</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- DE LA ESPRIELLA -->
-        <section id="espriella" class="section fade-in">
-            <div class="section-header">
-                <div class="section-tag"><i class="fas fa-user-tie"></i> NUEVO GOBIERNO</div>
+                <div class="section-tag">Nuevo Gobierno</div>
                 <h2>Política de Seguridad — De la Espriella</h2>
-                <p class="section-desc">"Se acabó la paz total". Cero negociación política con grupos armados. 30 días de plazo para sometimiento.</p>
+                <p class="section-desc">"Se acabó la paz total". Cero negociación política con grupos armados.</p>
+            </div>
+
+            <div class="quote-box">
+                "Se acabó la paz total. Se les da 30 días para que se sometan o enfrenten la fuerza del Estado."
+                <br><small style="font-style:normal; color:var(--gray-600)">— De la Espriella, julio 2026 (Semana, Infobae, Colombia Plural)</small>
             </div>
 
             <div class="stat-grid">
                 <div class="stat-card">
-                    <div class="stat-number color-3">0</div>
+                    <div class="stat-number color-red">0</div>
                     <div class="stat-label">Negociación política</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number color-5">30</div>
+                    <div class="stat-number color-yellow">30</div>
                     <div class="stat-label">Días de plazo</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number color-1">Ago 7</div>
+                    <div class="stat-number color-navy">Ago 7</div>
                     <div class="stat-label">Fecha toma posesión</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number color-4">1</div>
+                    <div class="stat-number color-blue">1</div>
                     <div class="stat-label">Enfoque: seguridad</div>
                 </div>
             </div>
 
-            <div class="group-card red">
-                <h3><span style="color:var(--accent-3)"><i class="fas fa-bullhorn"></i></span> Declaraciones Clave</h3>
+            <div class="group-card border-red">
+                <h3>Declaraciones Clave</h3>
                 <div class="collapsible">
                     <div class="collapsible-header">Citas textuales <i class="fas fa-chevron-down"></i></div>
                     <div class="collapsible-body">
-                        <p style="color:var(--text-secondary); margin-bottom:8px"><strong>"Se acabó la paz total"</strong> — Semana, julio 2026</p>
-                        <p style="color:var(--text-secondary); margin-bottom:8px"><strong>"Cero negociación política con bandas criminales"</strong> — Colombia Plural</p>
-                        <p style="color:var(--text-secondary); margin-bottom:8px"><strong>"Se les da 30 días para que se sometan o enfrenten la fuerza del Estado"</strong> — Infobae</p>
-                        <p style="color:var(--text-secondary); margin-bottom:8px"><strong>"Combatir el crimen organizado será el centro de la política de seguridad"</strong> — La Silla Vacía</p>
-                        <p style="color:var(--text-secondary)"><strong>"Vamos a usar todas las herramientas del Estado para recuperar la seguridad en las ciudades"</strong> — Semana</p>
+                        <p style="color:var(--gray-700); margin-bottom:6px"><strong>"Se acabó la paz total"</strong> — Semana, julio 2026</p>
+                        <p style="color:var(--gray-700); margin-bottom:6px"><strong>"Cero negociación política con bandas criminales"</strong> — Colombia Plural</p>
+                        <p style="color:var(--gray-700); margin-bottom:6px"><strong>"Se les da 30 días para que se sometan o enfrenten la fuerza del Estado"</strong> — Infobae</p>
+                        <p style="color:var(--gray-700); margin-bottom:6px"><strong>"Combatir el crimen organizado será el centro de la política de seguridad"</strong> — La Silla Vacía</p>
+                        <p style="color:var(--gray-700)"><strong>"Vamos a usar todas las herramientas del Estado para recuperar la seguridad en las ciudades"</strong> — Semana</p>
                     </div>
                 </div>
-                <div class="risk-box" style="margin-top:16px">
-                    <h4><i class="fas fa-exclamation-triangle"></i> Impacto en procesos de paz</h4>
+                <div class="risk-box" style="margin-top:12px">
+                    <h4>Impacto en procesos de paz</h4>
                     <ul>
                         <li>ELN: Diálogos suspendidos — confirmado</li>
                         <li>EMC: Cese al fuego bajo amenaza</li>
@@ -1590,22 +1400,86 @@
             </div>
         </section>
 
-        <!-- CRONOLOGÍA -->
-        <section id="cronologia" class="section fade-in">
+        <!-- DATOS HISTÓRICOS -->
+        <section id="datos-historicos" class="section fade-in">
             <div class="section-header">
-                <div class="section-tag"><i class="fas fa-clock"></i> CRONOLOGÍA</div>
+                <div class="section-tag">Datos Históricos</div>
+                <h2>Cifras del Conflicto Armado</h2>
+                <p class="section-desc">Más de 60 años de conflicto. Las cifras más completas verificadas por múltiples fuentes.</p>
+            </div>
+
+            <div class="stat-grid">
+                <div class="stat-card">
+                    <div class="stat-number color-red">260,000+</div>
+                    <div class="stat-label">Personas asesinadas</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number color-yellow">121,000+</div>
+                    <div class="stat-label">Desaparecidos</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number color-navy">8M+</div>
+                    <div class="stat-label">Desplazados internos</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number color-blue">9M+</div>
+                    <div class="stat-label">Víctimas registradas</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number color-green">18,000+</div>
+                    <div class="stat-label">Niños soldados</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number color-red">450,000+</div>
+                    <div class="stat-label">Homicidios relacionados</div>
+                </div>
+            </div>
+
+            <div class="chart-grid">
+                <div class="chart-card">
+                    <h3>Víctimas por tipo de violencia</h3>
+                    <div class="chart-container">
+                        <canvas id="victimasChart"></canvas>
+                    </div>
+                </div>
+                <div class="chart-card">
+                    <h3>Grupos responsables (porcentaje estimado)</h3>
+                    <div class="chart-container">
+                        <canvas id="responsablesChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="group-card border-navy">
+                <h3>Fuentes de datos históricos</h3>
+                <div class="collapsible">
+                    <div class="collapsible-header">Cifras verificadas <i class="fas fa-chevron-down"></i></div>
+                    <div class="collapsible-body">
+                        <p style="color:var(--gray-700); margin-bottom:6px"><strong>OCHA:</strong> 8+ millones de desplazados internos</p>
+                        <p style="color:var(--gray-700); margin-bottom:6px"><strong>Centro Nacional de Memoria Histórica:</strong> 260,000+ asesinatos</p>
+                        <p style="color:var(--gray-700); margin-bottom:6px"><strong>Unidad de Búsqueda:</strong> 121,000+ desaparecidos</p>
+                        <p style="color:var(--gray-700); margin-bottom:6px"><strong>Registro Único de Víctimas:</strong> 9+ millones registradas</p>
+                        <p style="color:var(--gray-700)"><strong>Verdad Abierta:</strong> 18,000+ niños soldados documentados</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CRONOLOGÍA -->
+        <section id="cronologia" class="section section-alt fade-in">
+            <div class="section-header">
+                <div class="section-tag">Cronología</div>
                 <h2>Historia del Conflicto</h2>
                 <p class="section-desc">Más de 60 años de conflicto armado. De las guerrillas fundadas en los años 60 a la crisis actual.</p>
             </div>
 
             <div class="timeline">
-                <!-- ORÍGENES -->
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <div class="timeline-year">1964</div>
                         <div class="timeline-title">Fundación de FARC</div>
-                        <div class="timeline-desc">Creación de las Fuerzas Armadas Revolucionarias de Colombia como brazo armado del comunismo. Inicio formal del conflicto armado.</div>
+                        <div class="timeline-desc">Creación de las Fuerzas Armadas Revolucionarias de Colombia como brazo armado del comunismo.</div>
                     </div>
                 </div>
                 <div class="timeline-item">
@@ -1613,7 +1487,7 @@
                     <div class="timeline-content">
                         <div class="timeline-year">1964</div>
                         <div class="timeline-title">Fundación del ELN</div>
-                        <div class="timeline-desc">Creación del Ejército de Liberación Nacional con inspiración de la Revolución Cubana. Primera guerrilla en adoptar el modelo de guerra de guerrillas.</div>
+                        <div class="timeline-desc">Creación del Ejército de Liberación Nacional con inspiración de la Revolución Cubana.</div>
                     </div>
                 </div>
                 <div class="timeline-item">
@@ -1621,7 +1495,7 @@
                     <div class="timeline-content">
                         <div class="timeline-year">1967</div>
                         <div class="timeline-title">Creación del EPL</div>
-                        <div class="timeline-desc">Ejército Popular de Liberación, guerrilla de orientación maoísta. Operó principalmente en Urabá y Córdoba.</div>
+                        <div class="timeline-desc">Ejército Popular de Liberación, guerrilla de orientación maoísta. Operó en Urabá y Córdoba.</div>
                     </div>
                 </div>
                 <div class="timeline-item">
@@ -1629,7 +1503,7 @@
                     <div class="timeline-content">
                         <div class="timeline-year">1970</div>
                         <div class="timeline-title">Creación del M-19</div>
-                        <div class="timeline-desc">Movimiento 19 de Abril, guerrilla urbana que se convirtió en la segunda fuerza guerrillera del país.</div>
+                        <div class="timeline-desc">Movimiento 19 de Abril, guerrilla urbana que se convirtió en la segunda fuerza guerrillera.</div>
                     </div>
                 </div>
                 <div class="timeline-item">
@@ -1637,17 +1511,15 @@
                     <div class="timeline-content">
                         <div class="timeline-year">1970s</div>
                         <div class="timeline-title">Narcotráfico como financiador</div>
-                        <div class="timeline-desc">El narcotráfico comienza a financiar a todos los actores del conflicto: guerrillas, paramilitares y fuerzas estatales.</div>
+                        <div class="timeline-desc">El narcotráfico comienza a financiar a todos los actores del conflicto.</div>
                     </div>
                 </div>
-
-                <!-- APOGEO -->
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <div class="timeline-year">1982</div>
                         <div class="timeline-title">FARC controla 30% del territorio</div>
-                        <div class="timeline-desc">Las FARC alcanzan su máximo apogeo territorial, controlando casi un tercio del país.</div>
+                        <div class="timeline-desc">Las FARC alcanzan su máximo apogeo territorial.</div>
                     </div>
                 </div>
                 <div class="timeline-item">
@@ -1655,7 +1527,7 @@
                     <div class="timeline-content">
                         <div class="timeline-year">1984</div>
                         <div class="timeline-title">Masacre de la Unión Patriótica</div>
-                        <div class="timeline-desc">400 miembros de la Unión Patriótica asesinados. Genocidio político que marcó la historia del conflicto.</div>
+                        <div class="timeline-desc">400 miembros de la UP asesinados. Genocidio político.</div>
                     </div>
                 </div>
                 <div class="timeline-item">
@@ -1663,7 +1535,7 @@
                     <div class="timeline-content">
                         <div class="timeline-year">1990</div>
                         <div class="timeline-title">Caída del M-19</div>
-                        <div class="timeline-desc">Acuerdos de paz con el M-19. Inicio de la Asamblea Constituyente. Primera desmovilización exitosa de una guerrilla.</div>
+                        <div class="timeline-desc">Acuerdos de paz. Primera desmovilización exitosa de una guerrilla.</div>
                     </div>
                 </div>
                 <div class="timeline-item">
@@ -1671,7 +1543,7 @@
                     <div class="timeline-content">
                         <div class="timeline-year">1997</div>
                         <div class="timeline-title">Masacre de Mapiripán</div>
-                        <div class="timeline-desc">30 muertos en la masacre perpetrada por paramilitares. Una de las más cruentas del conflicto.</div>
+                        <div class="timeline-desc">30 muertos. Una de las más cruentas del conflicto.</div>
                     </div>
                 </div>
                 <div class="timeline-item">
@@ -1679,17 +1551,15 @@
                     <div class="timeline-content">
                         <div class="timeline-year">1999</div>
                         <div class="timeline-title">Toma de Mitú</div>
-                        <div class="timeline-desc">FARC toma la capital del Vaupés. Más de 100 muertos. Mayor operación guerrillera contra una capital departamental.</div>
+                        <div class="timeline-desc">FARC toma la capital del Vaupés. Más de 100 muertos.</div>
                     </div>
                 </div>
-
-                <!-- PROCESOS DE PAZ -->
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <div class="timeline-year">2000</div>
                         <div class="timeline-title">Diálogos del Caguán</div>
-                        <div class="timeline-desc">Inicio de negociaciones entre gobierno y FARC en el Caquetá. Zona desmilitarizada de 42,000 km².</div>
+                        <div class="timeline-desc">Zona desmilitarizada de 42,000 km² en el Caquetá.</div>
                     </div>
                 </div>
                 <div class="timeline-item">
@@ -1697,7 +1567,7 @@
                     <div class="timeline-content">
                         <div class="timeline-year">2002</div>
                         <div class="timeline-title">Fin de diálogos El Caguán</div>
-                        <div class="timeline-desc">Se frustran las negociaciones tras el secuestro de Ingrid Betancourt. Inicio de ofensiva militar del gobierno Pastrana.</div>
+                        <div class="timeline-desc">Secuestro de Ingrid Betancourt. Inicio de ofensiva militar.</div>
                     </div>
                 </div>
                 <div class="timeline-item">
@@ -1705,17 +1575,15 @@
                     <div class="timeline-content">
                         <div class="timeline-year">2012</div>
                         <div class="timeline-title">Diálogos de La Habana</div>
-                        <div class="timeline-desc">Inicio de negociaciones secretas entre gobierno Santos y FARC en La Habana, Cuba. Garantes: Cuba y Noruega.</div>
+                        <div class="timeline-desc">Negociaciones secretas entre gobierno Santos y FARC. Garantes: Cuba y Noruega.</div>
                     </div>
                 </div>
-
-                <!-- POST-ACUERDO -->
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <div class="timeline-year">2016</div>
                         <div class="timeline-title">Acuerdo Final de Paz</div>
-                        <div class="timeline-desc">Firma del Acuerdo Final con FARC. Creación de JEP, Comisión de la Verdad, Unidad de Búsqueda. Referendo rechazado (50.2%) pero acuerdo finalizado.</div>
+                        <div class="timeline-desc">Creación de JEP, Comisión de la Verdad, Unidad de Búsqueda. Referendo rechazado pero acuerdo finalizado.</div>
                     </div>
                 </div>
                 <div class="timeline-item">
@@ -1723,7 +1591,7 @@
                     <div class="timeline-content">
                         <div class="timeline-year">2017</div>
                         <div class="timeline-title">Creación de la JEP</div>
-                        <div class="timeline-desc">Jurisdicción Especial para la Paz entra en funcionamiento. Mecanismo de justicia transicional para resolver el conflicto.</div>
+                        <div class="timeline-desc">Jurisdicción Especial para la Paz entra en funcionamiento.</div>
                     </div>
                 </div>
                 <div class="timeline-item">
@@ -1731,7 +1599,7 @@
                     <div class="timeline-content">
                         <div class="timeline-year">2018</div>
                         <div class="timeline-title">100+ líderes sociales asesinados</div>
-                        <div class="timeline-desc">Primer año completo post-acuerdo con más de 100 líderes sociales y defensores de DDHH asesinados.</div>
+                        <div class="timeline-desc">Primer año completo post-acuerdo con más de 100 líderes asesinados.</div>
                     </div>
                 </div>
                 <div class="timeline-item">
@@ -1739,7 +1607,7 @@
                     <div class="timeline-content">
                         <div class="timeline-year">2019</div>
                         <div class="timeline-title">100+ firmantes del acuerdo asesinados</div>
-                        <div class="timeline-desc">Continúa la violencia contra excombatientes. Más de 100 firmantes del acuerdo asesinados en un solo año.</div>
+                        <div class="timeline-desc">Continúa la violencia contra excombatientes.</div>
                     </div>
                 </div>
                 <div class="timeline-item">
@@ -1747,17 +1615,15 @@
                     <div class="timeline-content">
                         <div class="timeline-year">2020</div>
                         <div class="timeline-title">Pandemia afecta implementación</div>
-                        <div class="timeline-desc">COVID-19 paraliza programas de reintegración y sustitución de cultivos. Grupos armados aprovechan para expandirse.</div>
+                        <div class="timeline-desc">COVID-19 paraliza programas. Grupos armados aprovechan para expandirse.</div>
                     </div>
                 </div>
-
-                <!-- CRISIS ACTUAL -->
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <div class="timeline-year">2021</div>
                         <div class="timeline-title">Paro nacional, estallido social</div>
-                        <div class="timeline-desc">Paro Nacional del 21 de abril. Estallido social que deja más de 80 muertos. Crisis de gobernabilidad.</div>
+                        <div class="timeline-desc">Paro Nacional del 21 de abril. Más de 80 muertos.</div>
                     </div>
                 </div>
                 <div class="timeline-item">
@@ -1765,7 +1631,7 @@
                     <div class="timeline-content">
                         <div class="timeline-year">2022</div>
                         <div class="timeline-title">Paz Total — Ley 2272</div>
-                        <div class="timeline-desc">Gobierno Petro anuncia "Paz Total". Ley 2272 de justicia transicional. Reinicio de diálogos con ELN en Caracas.</div>
+                        <div class="timeline-desc">Gobierno Petro anuncia "Paz Total". Ley 2272 de justicia transicional.</div>
                     </div>
                 </div>
                 <div class="timeline-item">
@@ -1773,7 +1639,7 @@
                     <div class="timeline-content">
                         <div class="timeline-year">2023</div>
                         <div class="timeline-title">Diálogos ELN en México</div>
-                        <div class="timeline-desc">Acuerdo de México — marco de construcción de paz. Mecanismo de participación ciudadana. Avances en cese al fuego.</div>
+                        <div class="timeline-desc">Acuerdo de México — marco de construcción de paz.</div>
                     </div>
                 </div>
                 <div class="timeline-item">
@@ -1781,7 +1647,7 @@
                     <div class="timeline-content">
                         <div class="timeline-year">2024</div>
                         <div class="timeline-title">Fractura del EMC y Segunda Marquetalia</div>
-                        <div class="timeline-desc">Mordisco vs Calarcá en EMC. Segunda Marquetalia se divide: Walter Mendoza vs Iván Márquez. Inician diálogos gobierno-Segunda Marquetalia.</div>
+                        <div class="timeline-desc">Mordisco vs Calarcá. Segunda Marquetalia se divide.</div>
                     </div>
                 </div>
                 <div class="timeline-item">
@@ -1789,7 +1655,7 @@
                     <div class="timeline-content">
                         <div class="timeline-year">2025</div>
                         <div class="timeline-title">Crisis Catatumbo</div>
-                        <div class="timeline-desc">Guerra ELN vs. Frente 33. 55,000+ desplazados, 19,000 confinados. Suspenden diálogos ELN (enero). Inician diálogos EMC (junio). Cese al fuego bilateral EMC (diciembre).</div>
+                        <div class="timeline-desc">Guerra ELN vs. Frente 33. 55,000+ desplazados. Suspenden diálogos ELN. Inician diálogos EMC.</div>
                     </div>
                 </div>
                 <div class="timeline-item">
@@ -1797,7 +1663,7 @@
                     <div class="timeline-content">
                         <div class="timeline-year">2026</div>
                         <div class="timeline-title">ELN se somete a Venezuela</div>
-                        <div class="timeline-desc">En junio 2026, gobierno de Maduro declara que ELN se sometió a su autoridad. Genera incertidumbre sobre negociaciones con Colombia.</div>
+                        <div class="timeline-desc">Junio 2026. Incertidumbre sobre negociaciones.</div>
                     </div>
                 </div>
                 <div class="timeline-item">
@@ -1805,7 +1671,7 @@
                     <div class="timeline-content">
                         <div class="timeline-year">2026</div>
                         <div class="timeline-title">Extradición "Chiquito Malo" reactivada</div>
-                        <div class="timeline-desc">En julio 2026, reactivan extradición del líder del Clan del Golfo a EE.UU. Acusaciones por terrorismo y narcotráfico.</div>
+                        <div class="timeline-desc">Julio 2026. Acusaciones por terrorismo y narcotráfico.</div>
                     </div>
                 </div>
                 <div class="timeline-item">
@@ -1813,7 +1679,7 @@
                     <div class="timeline-content">
                         <div class="timeline-year">2026</div>
                         <div class="timeline-title">Fin de confrontación armada EMC</div>
-                        <div class="timeline-desc">En abril 2026, declaratoria formal de fin de la confrontación armada con el EMC. Conformación del Grupo de Trabajo en La Habana (julio).</div>
+                        <div class="timeline-desc">Abril 2026. Grupo de Trabajo en La Habana (julio).</div>
                     </div>
                 </div>
                 <div class="timeline-item">
@@ -1821,7 +1687,7 @@
                     <div class="timeline-content">
                         <div class="timeline-year">2026</div>
                         <div class="timeline-title">Nuevo gobierno — "Se acabó la paz total"</div>
-                        <div class="timeline-desc">De la Espriella asume agosto 7. Anuncia cero negociación política con grupos armados. 30 días de plazo para sometimiento.</div>
+                        <div class="timeline-desc">De la Espriella asume agosto 7. Cero negociación política.</div>
                     </div>
                 </div>
             </div>
@@ -1830,36 +1696,36 @@
         <!-- FUENTES -->
         <section id="fuentes" class="section fade-in">
             <div class="section-header">
-                <div class="section-tag"><i class="fas fa-book"></i> FUENTES</div>
+                <div class="section-tag">Fuentes</div>
                 <h2>Documentación y Verificación</h2>
-                <p class="section-desc">Toda información está verificada por mínimo 2 fuentes independientes de tipo distinto. Discrepancias documentadas explícitamente.</p>
+                <p class="section-desc">Toda información está verificada por mínimo 2 fuentes independientes de tipo distinto.</p>
             </div>
 
             <div class="card-grid">
                 <div class="card">
-                    <div class="card-icon bg-1 color-1"><i class="fas fa-newspaper"></i></div>
+                    <div class="card-icon bg-red"><i class="fas fa-newspaper"></i></div>
                     <h3>Prensa Nacional</h3>
-                    <p>El Tiempo, Semana, Infobae, El Espectador, El Heraldo, Caracol Radio, RCN.</p>
+                    <p>El Tiempo, Semana, Infobae, El Espectador, El Heraldo, Caracol Radio, RCN, La Silla Vacía, Colombia Plural, RTVC.</p>
                 </div>
                 <div class="card">
-                    <div class="card-icon bg-2 color-2"><i class="fas fa-flask"></i></div>
+                    <div class="card-icon bg-blue"><i class="fas fa-flask"></i></div>
                     <h3>Centros de Investigación</h3>
-                    <p>InsightCrime, Indepaz, FIP (Ideas para la Paz), CERAC, Rutas del Conflicto, Verdad Abierta.</p>
+                    <p>InsightCrime, Indepaz, FIP (Ideas para la Paz), CERAC, Rutas del Conflicto, Verdad Abierta, Fundación Paz y Reconciliación.</p>
                 </div>
                 <div class="card">
-                    <div class="card-icon bg-3 color-3"><i class="fas fa-university"></i></div>
+                    <div class="card-icon bg-blue"><i class="fas fa-university"></i></div>
                     <h3>Fuentes Oficiales</h3>
-                    <p>MinDefensa, Armada Nacional, Policía, Fiscalía, Portal para la Paz, Renovación del Territorio.</p>
+                    <p>MinDefensa, Armada Nacional, Policía, Fiscalía, Portal para la Paz, Renovación del Territorio, UNODC.</p>
                 </div>
                 <div class="card">
-                    <div class="card-icon bg-4 color-4"><i class="fas fa-globe"></i></div>
+                    <div class="card-icon bg-green"><i class="fas fa-globe"></i></div>
                     <h3>Internacionales</h3>
-                    <p>ACNUR, OCHA, UNODC, ONU, BBC, France24, CNN en Español.</p>
+                    <p>ACNUR, OCHA, ONU, BBC, France24, CNN en Español, CICR, Reuters.</p>
                 </div>
             </div>
 
-            <div class="group-card orange" style="margin-top:30px">
-                <h3><span style="color:var(--accent-5)"><i class="fas fa-exclamation-circle"></i></span> Discrepancias Documentadas</h3>
+            <div class="group-card border-yellow" style="margin-top:24px">
+                <h3>Discrepancias Documentadas</h3>
                 <div class="collapsible">
                     <div class="collapsible-header">Tabla completa de discrepancias <i class="fas fa-chevron-down"></i></div>
                     <div class="collapsible-body">
@@ -1869,16 +1735,12 @@
                                 <tbody>
                                     <tr><td>Frentes ELN</td><td>InsightCrime: 8</td><td>Gobierno: 6</td><td>InsightCrime incluye FGN y FGJDR</td></tr>
                                     <tr><td>Tamaño EMC</td><td>InsightCrime: 3,500</td><td>Gobierno: 9,000</td><td>Gobierno incluye redes de apoyo</td></tr>
-                                    <tr><td>Clan del Golfo</td><td>FIP: 9,840</td><td>Prensa: 27,000</td><td>Prensa incluye redes. FIP más riguroso</td></tr>
+                                    <tr><td>Clan del Golfo</td><td>FIP: 9,840</td><td>Prensa: 27,000</td><td>Prensa incluye redes</td></tr>
                                     <tr><td>Desplazados Catatumbo</td><td>ACAPS: 30,000</td><td>Verdad Abierta: 55,000</td><td>ACAPS más conservador</td></tr>
-                                    <tr><td>Confined nacional</td><td>Indepaz: 45,000</td><td>Verdad Abierta: 138,000+</td><td>Diferencia por definición de "confinado"</td></tr>
-                                    <tr><td>Tamaño Clan del Golfo (2023)</td><td>Gobierno: 3,000-3,500</td><td>FIP 2026: 9,840</td><td>Crecimiento del 23.5% en un año</td></tr>
-                                    <tr><td>Nombre "Clan del Golfo"</td><td>Prensa: Clan del Golfo</td><td>Grupo: Autodefensas Gaitanistas</td><td>Nombre es etiqueta disputada</td></tr>
-                                    <tr><td>Líder "Chiquito Malo"</td><td>Gobierno: extraditado</td><td>FIP: extradición reactivada jul 2026</td><td>Extradición fue en 2012, reactivada</td></tr>
-                                    <tr><td>Comuneros del Sur</td><td>InsightCrime: 300-500</td><td>Fundación Paz: 800+</td><td>Diferencia por incluir redes</td></tr>
-                                    <tr><td>Segunda Marquetalia</td><td>Caracol: Márquez vivo</td><td>InsightCrime: incierto</td><td>Incertidumbre sobre estado de Márquez</td></tr>
-                                    <tr><td>Líderes asesinados 2025</td><td>Indepaz: 187</td><td>CNEH: 165</td><td>Diferencia en metodología de conteo</td></tr>
-                                    <tr><td>Sobrepago PNIS</td><td>Contraloría: $1.6B</td><td>Gobierno: en revisión</td><td>Monto exacto en disputa</td></tr>
+                                    <tr><td>Confined nacional</td><td>Indepaz: 45,000</td><td>Verdad Abierta: 138,000+</td><td>Diferencia por definición</td></tr>
+                                    <tr><td>Nombre "Clan del Golfo"</td><td>Prensa: Clan del Golfo</td><td>Grupo: Autodefensas Gaitanistas</td><td>Etiqueta disputada</td></tr>
+                                    <tr><td>Líderes asesinados 2025</td><td>Indepaz: 187</td><td>CNEH: 165</td><td>Diferencia en metodología</td></tr>
+                                    <tr><td>Sobrepago PNIS</td><td>Contraloría: $1.6B</td><td>Gobierno: en revisión</td><td>Monto en disputa</td></tr>
                                 </tbody>
                             </table>
                         </div>
@@ -1891,18 +1753,20 @@
 
     <!-- FOOTER -->
     <footer>
-        <p style="font-size:1.2rem; font-weight:700; margin-bottom:10px">COLOMBIA 2030</p>
-        <p>Investigación sobre conflicto armado, negociación y paz</p>
-        <p style="margin-top:20px; font-size:0.8rem">Actualizado julio 2026 · Fuentes verificadas · Discrepancias documentadas</p>
-        <div class="footer-links">
-            <a href="#actores">Actores</a>
-            <a href="#economia">Economía</a>
-            <a href="#crisis">Crisis</a>
-            <a href="#lideres">Líderes</a>
-            <a href="#procesos-paz">Paz</a>
-            <a href="#espriella">Gobierno</a>
-            <a href="#datos-historicos">Histórico</a>
-            <a href="#fuentes">Fuentes</a>
+        <div class="container">
+            <h4>Colombia: Conflicto, Paz y Negociación</h4>
+            <p>Investigación periodística sobre conflicto armado, negociación y construcción de paz en Colombia.</p>
+            <p style="margin-top:8px; font-size:0.85rem; color:var(--gray-500)">Actualizado julio 2026 · Fuentes verificadas · Discrepancias documentadas</p>
+            <div class="footer-links">
+                <a href="#actores">Actores Armados</a>
+                <a href="#economia">Economía</a>
+                <a href="#crisis">Crisis Humanitaria</a>
+                <a href="#lideres">Líderes Sociales</a>
+                <a href="#procesos-paz">Procesos de Paz</a>
+                <a href="#espriella">Nuevo Gobierno</a>
+                <a href="#cronologia">Cronología</a>
+                <a href="#fuentes">Fuentes</a>
+            </div>
         </div>
     </footer>
 
@@ -1917,29 +1781,24 @@
 
         // COLLAPSIBLES
         document.querySelectorAll('.collapsible-header').forEach(h => {
-            h.addEventListener('click', () => {
-                h.parentElement.classList.toggle('open');
-            });
+            h.addEventListener('click', () => h.parentElement.classList.toggle('open'));
         });
 
-        // SCROLL ANIMATIONS
+        // SCROLL
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
+                if (entry.isIntersecting) entry.target.classList.add('visible');
             });
         }, { threshold: 0.1 });
-
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
         // NAV ACTIVE
         window.addEventListener('scroll', () => {
-            const sections = document.querySelectorAll('section');
+            const sections = document.querySelectorAll('section[id]');
             const navLinks = document.querySelectorAll('nav a');
             let current = '';
             sections.forEach(s => {
-                const top = s.offsetTop - 100;
+                const top = s.offsetTop - 120;
                 if (scrollY >= top) current = s.getAttribute('id');
             });
             navLinks.forEach(l => {
@@ -1949,15 +1808,12 @@
         });
 
         // CHARTS
-        const chartColors = {
-            accent1: '#00d4ff',
-            accent2: '#7c3aed',
-            accent3: '#f43f5e',
-            accent4: '#10b981',
-            accent5: '#f59e0b'
+        const c = {
+            red: '#c0392b', navy: '#1a2332', blue: '#2980b9',
+            green: '#27ae60', yellow: '#f39c12', gray: '#6c757d'
         };
 
-        // Coca Chart
+        // Coca
         new Chart(document.getElementById('cocaChart'), {
             type: 'bar',
             data: {
@@ -1965,172 +1821,131 @@
                 datasets: [{
                     label: 'Hectáreas de coca',
                     data: [188000, 208000, 171000, 204000, 253000, 250000],
-                    backgroundColor: [chartColors.accent4, chartColors.accent4, chartColors.accent1, chartColors.accent5, chartColors.accent3, chartColors.accent3],
-                    borderRadius: 8,
-                    borderSkipped: false
+                    backgroundColor: [c.green, c.green, c.blue, c.yellow, c.red, c.red],
+                    borderRadius: 4
                 }]
             },
             options: {
-                responsive: true,
-                maintainAspectRatio: false,
+                responsive: true, maintainAspectRatio: false,
                 plugins: { legend: { display: false } },
                 scales: {
-                    x: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#8888a0' } },
-                    y: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#8888a0', callback: v => (v/1000)+'K' } }
+                    x: { grid: { display: false }, ticks: { color: c.gray } },
+                    y: { grid: { color: '#e9ecef' }, ticks: { color: c.gray, callback: v => (v/1000)+'K' } }
                 }
             }
         });
 
-        // Minería Chart
+        // Minería
         new Chart(document.getElementById('mineriaChart'), {
             type: 'doughnut',
             data: {
                 labels: ['Minería ilegal', 'Territorio afectado', 'Sin afectación'],
-                datasets: [{
-                    data: [82000, 150000, 768000],
-                    backgroundColor: [chartColors.accent5, chartColors.accent3, 'rgba(255,255,255,0.05)'],
-                    borderWidth: 0
-                }]
+                datasets: [{ data: [82000, 150000, 768000], backgroundColor: [c.yellow, c.red, '#e9ecef'], borderWidth: 0 }]
             },
             options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: { legend: { position: 'bottom', labels: { color: '#8888a0', padding: 16 } } },
-                cutout: '60%'
+                responsive: true, maintainAspectRatio: false,
+                plugins: { legend: { position: 'bottom', labels: { color: c.gray, padding: 16 } } },
+                cutout: '65%'
             }
         });
 
-        // Desplazados Chart
+        // Desplazados
         new Chart(document.getElementById('desplazadosChart'), {
             type: 'bar',
             data: {
                 labels: ['Catatumbo', 'N. Santander', 'Bolívar', 'Chocó', 'Pacífico', 'Cauca'],
-                datasets: [{
-                    label: 'Desplazados',
-                    data: [55000, 23831, 25000, 4708, 1135, 6234],
-                    backgroundColor: chartColors.accent3,
-                    borderRadius: 6,
-                    borderSkipped: false
-                }, {
-                    label: 'Confinados',
-                    data: [19000, 75620, 15651, 8892, 15173, 12385],
-                    backgroundColor: chartColors.accent5,
-                    borderRadius: 6,
-                    borderSkipped: false
-                }]
+                datasets: [
+                    { label: 'Desplazados', data: [55000, 23831, 25000, 4708, 1135, 6234], backgroundColor: c.red, borderRadius: 4 },
+                    { label: 'Confinados', data: [19000, 75620, 15651, 8892, 15173, 12385], backgroundColor: c.yellow, borderRadius: 4 }
+                ]
             },
             options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: { legend: { labels: { color: '#8888a0' } } },
+                responsive: true, maintainAspectRatio: false,
+                plugins: { legend: { labels: { color: c.gray } } },
                 scales: {
-                    x: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#8888a0' } },
-                    y: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#8888a0', callback: v => (v/1000)+'K' } }
+                    x: { grid: { display: false }, ticks: { color: c.gray } },
+                    y: { grid: { color: '#e9ecef' }, ticks: { color: c.gray, callback: v => (v/1000)+'K' } }
                 }
             }
         });
 
-        // Niños Chart
+        // Niños
         new Chart(document.getElementById('ninosChart'), {
             type: 'pie',
             data: {
-                labels: ['Frente 33 (reclutamiento)', 'ELN', 'Clan del Golfo', 'Otros'],
-                datasets: [{
-                    data: [60, 20, 15, 5],
-                    backgroundColor: [chartColors.accent3, chartColors.accent1, chartColors.accent5, chartColors.accent4],
-                    borderWidth: 0
-                }]
+                labels: ['Frente 33', 'ELN', 'Clan del Golfo', 'Otros'],
+                datasets: [{ data: [60, 20, 15, 5], backgroundColor: [c.red, c.blue, c.yellow, c.green], borderWidth: 0 }]
             },
             options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: { legend: { position: 'bottom', labels: { color: '#8888a0', padding: 12 } } }
+                responsive: true, maintainAspectRatio: false,
+                plugins: { legend: { position: 'bottom', labels: { color: c.gray, padding: 12 } } }
             }
         });
 
-        // Líderes Chart
+        // Líderes
         new Chart(document.getElementById('lideresChart'), {
             type: 'bar',
             data: {
                 labels: ['2020', '2021', '2022', '2023', '2024', '2025', '2026*'],
                 datasets: [{
-                    label: 'Líderes asesinados',
+                    label: 'Asesinados',
                     data: [245, 165, 158, 142, 173, 187, 85],
-                    backgroundColor: [chartColors.accent3, chartColors.accent5, chartColors.accent5, chartColors.accent4, chartColors.accent5, chartColors.accent3, chartColors.accent2],
-                    borderRadius: 6,
-                    borderSkipped: false
+                    backgroundColor: [c.red, c.yellow, c.yellow, c.green, c.yellow, c.red, c.blue],
+                    borderRadius: 4
                 }]
             },
             options: {
-                responsive: true,
-                maintainAspectRatio: false,
+                responsive: true, maintainAspectRatio: false,
                 plugins: { legend: { display: false } },
                 scales: {
-                    x: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#8888a0' } },
-                    y: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#8888a0' } }
+                    x: { grid: { display: false }, ticks: { color: c.gray } },
+                    y: { grid: { color: '#e9ecef' }, ticks: { color: c.gray } }
                 }
             }
         });
 
-        // Sectores Chart
+        // Sectores
         new Chart(document.getElementById('sectoresChart'), {
             type: 'doughnut',
             data: {
                 labels: ['Comunal', 'Indígena', 'Campesino', 'Sindical', 'DDHH', 'LGBTIQ+', 'Víctimas'],
-                datasets: [{
-                    data: [40, 25, 15, 10, 5, 3, 2],
-                    backgroundColor: [chartColors.accent1, chartColors.accent2, chartColors.accent4, chartColors.accent5, chartColors.accent3, '#ec4899', '#6366f1'],
-                    borderWidth: 0
-                }]
+                datasets: [{ data: [40, 25, 15, 10, 5, 3, 2], backgroundColor: [c.blue, c.navy, c.green, c.yellow, c.red, '#e74c3c', '#8e44ad'], borderWidth: 0 }]
             },
             options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: { legend: { position: 'bottom', labels: { color: '#8888a0', padding: 10, font: { size: 11 } } } },
-                cutout: '50%'
+                responsive: true, maintainAspectRatio: false,
+                plugins: { legend: { position: 'bottom', labels: { color: c.gray, padding: 10, font: { size: 11 } } } },
+                cutout: '55%'
             }
         });
 
-        // Víctimas Chart
+        // Víctimas
         new Chart(document.getElementById('victimasChart'), {
             type: 'bar',
             data: {
                 labels: ['Homicidios', 'Desplazamiento', 'Secuestro', 'Minas', 'Reclutamiento', 'Violencia sexual'],
-                datasets: [{
-                    label: 'Víctimas',
-                    data: [260000, 8000000, 26000, 12000, 18000, 15000],
-                    backgroundColor: [chartColors.accent3, chartColors.accent5, chartColors.accent1, chartColors.accent4, chartColors.accent2, '#ec4899'],
-                    borderRadius: 6,
-                    borderSkipped: false
-                }]
+                datasets: [{ label: 'Víctimas', data: [260000, 8000000, 26000, 12000, 18000, 15000], backgroundColor: [c.red, c.yellow, c.blue, c.green, c.navy, '#e74c3c'], borderRadius: 4 }]
             },
             options: {
-                responsive: true,
-                maintainAspectRatio: false,
+                responsive: true, maintainAspectRatio: false,
                 indexAxis: 'y',
                 plugins: { legend: { display: false } },
                 scales: {
-                    x: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#8888a0', callback: v => (v/1000)+'K' } },
-                    y: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#8888a0' } }
+                    x: { grid: { color: '#e9ecef' }, ticks: { color: c.gray, callback: v => (v/1000)+'K' } },
+                    y: { grid: { display: false }, ticks: { color: c.gray } }
                 }
             }
         });
 
-        // Responsables Chart
+        // Responsables
         new Chart(document.getElementById('responsablesChart'), {
             type: 'doughnut',
             data: {
                 labels: ['FARC', 'ELN', 'Paramilitares', 'Fuerzas Estatales', 'Otros'],
-                datasets: [{
-                    data: [35, 20, 25, 15, 5],
-                    backgroundColor: [chartColors.accent4, chartColors.accent1, chartColors.accent3, chartColors.accent5, chartColors.accent2],
-                    borderWidth: 0
-                }]
+                datasets: [{ data: [35, 20, 25, 15, 5], backgroundColor: [c.green, c.blue, c.red, c.yellow, c.gray], borderWidth: 0 }]
             },
             options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: { legend: { position: 'bottom', labels: { color: '#8888a0', padding: 12 } } },
+                responsive: true, maintainAspectRatio: false,
+                plugins: { legend: { position: 'bottom', labels: { color: c.gray, padding: 12 } } },
                 cutout: '60%'
             }
         });
